@@ -1,0 +1,392 @@
+[gd_scene load_steps=98 format=3 uid="uid://ctk3onr8pnfbl"]
+
+[ext_resource type="PackedScene" uid="uid://cgmw4mxfeleta" path="res://assets/kenney_space-station-kit/Models/FBX format/balcony-floor-center.fbx" id="1_7nkj5"]
+[ext_resource type="PackedScene" uid="uid://c6nlos6tbcw0q" path="res://assets/kenney_space-station-kit/Models/FBX format/balcony-floor-corner.fbx" id="2_74wwp"]
+[ext_resource type="PackedScene" uid="uid://cdevtdat45tky" path="res://assets/kenney_space-station-kit/Models/FBX format/balcony-floor.fbx" id="3_hptu7"]
+[ext_resource type="PackedScene" uid="uid://dqm5kixjlpdfu" path="res://assets/kenney_space-station-kit/Models/FBX format/balcony-rail-center.fbx" id="4_2qpbc"]
+[ext_resource type="PackedScene" uid="uid://dftgqreb3njo5" path="res://assets/kenney_space-station-kit/Models/FBX format/balcony-rail-corner.fbx" id="5_jkuhc"]
+[ext_resource type="PackedScene" uid="uid://upnaw6uldg70" path="res://assets/kenney_space-station-kit/Models/FBX format/balcony-rail.fbx" id="6_330i6"]
+[ext_resource type="PackedScene" uid="uid://ddf1vkyill6ea" path="res://assets/kenney_space-station-kit/Models/FBX format/bed-double-cover.fbx" id="7_qdock"]
+[ext_resource type="PackedScene" uid="uid://crf6xrow6s3yc" path="res://assets/kenney_space-station-kit/Models/FBX format/bed-double.fbx" id="8_the1y"]
+[ext_resource type="PackedScene" uid="uid://cmrbvaqbbrwc8" path="res://assets/kenney_space-station-kit/Models/FBX format/bed-single-cover.fbx" id="9_j8cub"]
+[ext_resource type="PackedScene" uid="uid://b85nmfm6y4ids" path="res://assets/kenney_space-station-kit/Models/FBX format/bed-single.fbx" id="10_mrqf6"]
+[ext_resource type="PackedScene" uid="uid://cktveaym4dcb7" path="res://assets/kenney_space-station-kit/Models/FBX format/chair-armrest-headrest.fbx" id="11_rvqxk"]
+[ext_resource type="PackedScene" uid="uid://cbihdcuxkbokl" path="res://assets/kenney_space-station-kit/Models/FBX format/chair-armrest.fbx" id="12_hp3l4"]
+[ext_resource type="PackedScene" uid="uid://dqvxyroidhwpq" path="res://assets/kenney_space-station-kit/Models/FBX format/chair-cushion-headrest.fbx" id="13_egppb"]
+[ext_resource type="PackedScene" uid="uid://du14taggtd3ub" path="res://assets/kenney_space-station-kit/Models/FBX format/chair-cushion.fbx" id="14_elatp"]
+[ext_resource type="PackedScene" uid="uid://cjmkn4rxqhe50" path="res://assets/kenney_space-station-kit/Models/FBX format/chair-headrest.fbx" id="15_f5ah2"]
+[ext_resource type="PackedScene" uid="uid://ccomucbescfo7" path="res://assets/kenney_space-station-kit/Models/FBX format/chair.fbx" id="16_o8jg4"]
+[ext_resource type="PackedScene" uid="uid://duyt6macagx10" path="res://assets/kenney_space-station-kit/Models/FBX format/computer-screen.fbx" id="17_k1wp3"]
+[ext_resource type="PackedScene" uid="uid://biw7j5w2wqp0k" path="res://assets/kenney_space-station-kit/Models/FBX format/computer-system.fbx" id="18_hms0j"]
+[ext_resource type="PackedScene" uid="uid://bbt8kfjw4yjmk" path="res://assets/kenney_space-station-kit/Models/FBX format/computer-wide.fbx" id="19_q4311"]
+[ext_resource type="PackedScene" uid="uid://bnuyku4yyotr1" path="res://assets/kenney_space-station-kit/Models/FBX format/computer.fbx" id="20_vbr1x"]
+[ext_resource type="PackedScene" uid="uid://b21chox8wrwpr" path="res://assets/kenney_space-station-kit/Models/FBX format/container-flat-open.fbx" id="21_42b0k"]
+[ext_resource type="PackedScene" uid="uid://bs7elkfp1whlv" path="res://assets/kenney_space-station-kit/Models/FBX format/container-flat.fbx" id="22_domth"]
+[ext_resource type="PackedScene" uid="uid://vodbwuiyvje3" path="res://assets/kenney_space-station-kit/Models/FBX format/container-tall.fbx" id="23_rxenn"]
+[ext_resource type="PackedScene" uid="uid://d0res5v6qy3vf" path="res://assets/kenney_space-station-kit/Models/FBX format/container-wide.fbx" id="24_f7gkr"]
+[ext_resource type="PackedScene" uid="uid://bf3lqgyvix133" path="res://assets/kenney_space-station-kit/Models/FBX format/container.fbx" id="25_ty7h1"]
+[ext_resource type="PackedScene" uid="uid://ctujc2f0m11i6" path="res://assets/kenney_space-station-kit/Models/FBX format/display-wall-wide.fbx" id="26_6rsk6"]
+[ext_resource type="PackedScene" uid="uid://clwjx5gt5ngw6" path="res://assets/kenney_space-station-kit/Models/FBX format/display-wall.fbx" id="27_rutmt"]
+[ext_resource type="PackedScene" uid="uid://caycq00vnxa4v" path="res://assets/kenney_space-station-kit/Models/FBX format/door-double-closed.fbx" id="28_jxtmo"]
+[ext_resource type="PackedScene" uid="uid://baeix5rd8nxq8" path="res://assets/kenney_space-station-kit/Models/FBX format/door-double-half.fbx" id="29_w1vmn"]
+[ext_resource type="PackedScene" uid="uid://btl4yxvqmq07u" path="res://assets/kenney_space-station-kit/Models/FBX format/door-double.fbx" id="30_d1k28"]
+[ext_resource type="PackedScene" uid="uid://d3pq2l2g1yhkv" path="res://assets/kenney_space-station-kit/Models/FBX format/door-single-closed.fbx" id="31_jm13v"]
+[ext_resource type="PackedScene" uid="uid://5ltsximt654c" path="res://assets/kenney_space-station-kit/Models/FBX format/door-single-half.fbx" id="32_j7j77"]
+[ext_resource type="PackedScene" uid="uid://dpctba8pi4dsg" path="res://assets/kenney_space-station-kit/Models/FBX format/door-single.fbx" id="33_1igaj"]
+[ext_resource type="PackedScene" uid="uid://btpaqeb0ceg1e" path="res://assets/kenney_space-station-kit/Models/FBX format/floor-corner.fbx" id="34_gogb2"]
+[ext_resource type="PackedScene" uid="uid://bxgyrdm3kp146" path="res://assets/kenney_space-station-kit/Models/FBX format/floor-detail.fbx" id="35_21ttm"]
+[ext_resource type="PackedScene" uid="uid://dxoqj4jclw1v5" path="res://assets/kenney_space-station-kit/Models/FBX format/floor-panel-corner.fbx" id="36_6weyv"]
+[ext_resource type="PackedScene" uid="uid://d3bhx0a0p0nm" path="res://assets/kenney_space-station-kit/Models/FBX format/floor-panel-end.fbx" id="37_7cjo3"]
+[ext_resource type="PackedScene" uid="uid://orht148jg61s" path="res://assets/kenney_space-station-kit/Models/FBX format/floor-panel-straight.fbx" id="38_r33mf"]
+[ext_resource type="PackedScene" uid="uid://d3haj2j13i5sj" path="res://assets/kenney_space-station-kit/Models/FBX format/floor-panel.fbx" id="39_2abwk"]
+[ext_resource type="PackedScene" uid="uid://dq26lkjmjoej5" path="res://assets/kenney_space-station-kit/Models/FBX format/floor.fbx" id="40_j48kq"]
+[ext_resource type="PackedScene" uid="uid://b43x45payoc8y" path="res://assets/kenney_space-station-kit/Models/FBX format/pipe-bend-diagonal.fbx" id="41_hgt1y"]
+[ext_resource type="PackedScene" uid="uid://251jkkiaarr3" path="res://assets/kenney_space-station-kit/Models/FBX format/pipe-bend.fbx" id="42_x0li3"]
+[ext_resource type="PackedScene" uid="uid://dnc3flpowsmls" path="res://assets/kenney_space-station-kit/Models/FBX format/pipe-end-colored.fbx" id="43_6ciov"]
+[ext_resource type="PackedScene" uid="uid://c5gaics5tm1c8" path="res://assets/kenney_space-station-kit/Models/FBX format/pipe-end.fbx" id="44_08ssn"]
+[ext_resource type="PackedScene" uid="uid://d33qekcamcr2h" path="res://assets/kenney_space-station-kit/Models/FBX format/pipe-ring-colored.fbx" id="45_aqqm6"]
+[ext_resource type="PackedScene" uid="uid://b0ibksaeplxbu" path="res://assets/kenney_space-station-kit/Models/FBX format/pipe-ring.fbx" id="46_f0igh"]
+[ext_resource type="PackedScene" uid="uid://d3eyq6yvxs4cg" path="res://assets/kenney_space-station-kit/Models/FBX format/pipe.fbx" id="47_yvqff"]
+[ext_resource type="PackedScene" uid="uid://degcahos3rv2u" path="res://assets/kenney_space-station-kit/Models/FBX format/rail-narrow.fbx" id="48_7rn4s"]
+[ext_resource type="PackedScene" uid="uid://c3fwiqto2m600" path="res://assets/kenney_space-station-kit/Models/FBX format/rail.fbx" id="49_ywetr"]
+[ext_resource type="PackedScene" uid="uid://4p5w22q0qgc6" path="res://assets/kenney_space-station-kit/Models/FBX format/rocks.fbx" id="50_l1fvc"]
+[ext_resource type="PackedScene" uid="uid://57osmyyl7tlx" path="res://assets/kenney_space-station-kit/Models/FBX format/skip-rocks.fbx" id="51_lafqc"]
+[ext_resource type="PackedScene" uid="uid://bpkeavm3y5eb2" path="res://assets/kenney_space-station-kit/Models/FBX format/skip.fbx" id="52_v5say"]
+[ext_resource type="PackedScene" uid="uid://dbh1ietcvttvl" path="res://assets/kenney_space-station-kit/Models/FBX format/stairs-corner-inner.fbx" id="53_nmava"]
+[ext_resource type="PackedScene" uid="uid://cmjgw6slihkj3" path="res://assets/kenney_space-station-kit/Models/FBX format/stairs-corner.fbx" id="54_axmyo"]
+[ext_resource type="PackedScene" uid="uid://c6m4lrywavh6p" path="res://assets/kenney_space-station-kit/Models/FBX format/stairs-handrail-single.fbx" id="55_ij603"]
+[ext_resource type="PackedScene" uid="uid://bs4lq8v1fsy7p" path="res://assets/kenney_space-station-kit/Models/FBX format/stairs-handrail.fbx" id="56_jaaox"]
+[ext_resource type="PackedScene" uid="uid://cg8feaedkm16d" path="res://assets/kenney_space-station-kit/Models/FBX format/stairs-ramp.fbx" id="57_uds1o"]
+[ext_resource type="PackedScene" uid="uid://dnhwogvwjkmvf" path="res://assets/kenney_space-station-kit/Models/FBX format/stairs-small-center.fbx" id="58_lwb0v"]
+[ext_resource type="PackedScene" uid="uid://t4stxars3eh7" path="res://assets/kenney_space-station-kit/Models/FBX format/stairs-small-corner-inner.fbx" id="59_taf8x"]
+[ext_resource type="PackedScene" uid="uid://bj4igrd2xggry" path="res://assets/kenney_space-station-kit/Models/FBX format/stairs-small-corner.fbx" id="60_l8jtd"]
+[ext_resource type="PackedScene" uid="uid://ygxx8hgtts1s" path="res://assets/kenney_space-station-kit/Models/FBX format/stairs-small-edge-handrail.fbx" id="61_bm880"]
+[ext_resource type="PackedScene" uid="uid://c2g2iokw5de6s" path="res://assets/kenney_space-station-kit/Models/FBX format/stairs-small-edge.fbx" id="62_ccd2r"]
+[ext_resource type="PackedScene" uid="uid://bhh0dj4wscc80" path="res://assets/kenney_space-station-kit/Models/FBX format/stairs-small-edges-handrail.fbx" id="63_nfgd4"]
+[ext_resource type="PackedScene" uid="uid://b3okpx4itg76l" path="res://assets/kenney_space-station-kit/Models/FBX format/stairs-small-edges.fbx" id="64_cco15"]
+[ext_resource type="PackedScene" uid="uid://bd2qxu8e3usuf" path="res://assets/kenney_space-station-kit/Models/FBX format/stairs.fbx" id="65_1dngo"]
+[ext_resource type="PackedScene" uid="uid://baxdow2mtsoa4" path="res://assets/kenney_space-station-kit/Models/FBX format/structure-barrier-high.fbx" id="66_hhhq1"]
+[ext_resource type="PackedScene" uid="uid://cvlyn4bferbr2" path="res://assets/kenney_space-station-kit/Models/FBX format/structure-barrier.fbx" id="67_6nsxb"]
+[ext_resource type="PackedScene" uid="uid://cvqdbq0u1rx68" path="res://assets/kenney_space-station-kit/Models/FBX format/structure-panel.fbx" id="68_d5eq7"]
+[ext_resource type="PackedScene" uid="uid://1u4hlyiuo1rk" path="res://assets/kenney_space-station-kit/Models/FBX format/structure.fbx" id="69_y0q2k"]
+[ext_resource type="PackedScene" uid="uid://cct1hux4jki52" path="res://assets/kenney_space-station-kit/Models/FBX format/table-display-planet.fbx" id="70_wul0t"]
+[ext_resource type="PackedScene" uid="uid://sxggbdaefwj" path="res://assets/kenney_space-station-kit/Models/FBX format/table-display-small.fbx" id="71_70ari"]
+[ext_resource type="PackedScene" uid="uid://dgnfx7c4xv2sl" path="res://assets/kenney_space-station-kit/Models/FBX format/table-display.fbx" id="72_j0ul7"]
+[ext_resource type="PackedScene" uid="uid://dajbrdu23gc3s" path="res://assets/kenney_space-station-kit/Models/FBX format/table-inset-small.fbx" id="73_i5uho"]
+[ext_resource type="PackedScene" uid="uid://bdn36sqwse8hg" path="res://assets/kenney_space-station-kit/Models/FBX format/table-inset.fbx" id="74_k1kqm"]
+[ext_resource type="PackedScene" uid="uid://b3m0l5sw2c4p3" path="res://assets/kenney_space-station-kit/Models/FBX format/table-large.fbx" id="75_ixedr"]
+[ext_resource type="PackedScene" uid="uid://b3t32iuuwkvns" path="res://assets/kenney_space-station-kit/Models/FBX format/table.fbx" id="76_jrhjj"]
+[ext_resource type="PackedScene" uid="uid://we2uyeg0h52f" path="res://assets/kenney_space-station-kit/Models/FBX format/wall-banner.fbx" id="77_wbo3m"]
+[ext_resource type="PackedScene" uid="uid://cke6k2nupw35p" path="res://assets/kenney_space-station-kit/Models/FBX format/wall-corner-banner.fbx" id="78_chawx"]
+[ext_resource type="PackedScene" uid="uid://cm46tlx3e0x3c" path="res://assets/kenney_space-station-kit/Models/FBX format/wall-corner-round-banner.fbx" id="79_8ivcf"]
+[ext_resource type="PackedScene" uid="uid://1rv6wgtyqagf" path="res://assets/kenney_space-station-kit/Models/FBX format/wall-corner-round.fbx" id="80_r2f55"]
+[ext_resource type="PackedScene" uid="uid://dvnkf4cw0rv0d" path="res://assets/kenney_space-station-kit/Models/FBX format/wall-corner.fbx" id="81_ji636"]
+[ext_resource type="PackedScene" uid="uid://ddxj5aown32rd" path="res://assets/kenney_space-station-kit/Models/FBX format/wall-detail.fbx" id="82_t85gd"]
+[ext_resource type="PackedScene" uid="uid://dcu0jrnddmys" path="res://assets/kenney_space-station-kit/Models/FBX format/wall-door-banner.fbx" id="83_x1xoh"]
+[ext_resource type="PackedScene" uid="uid://clc840npr4dgv" path="res://assets/kenney_space-station-kit/Models/FBX format/wall-door-center.fbx" id="84_0dbct"]
+[ext_resource type="PackedScene" uid="uid://dn5yqlg45d6i5" path="res://assets/kenney_space-station-kit/Models/FBX format/wall-door-edge-banner.fbx" id="85_50wyd"]
+[ext_resource type="PackedScene" uid="uid://bkfi3e1gimpw3" path="res://assets/kenney_space-station-kit/Models/FBX format/wall-door-edge.fbx" id="86_0x1ib"]
+[ext_resource type="PackedScene" uid="uid://cbnnbtjnjp5ca" path="res://assets/kenney_space-station-kit/Models/FBX format/wall-door-wide-banner.fbx" id="87_86r07"]
+[ext_resource type="PackedScene" uid="uid://dlocgluu2w6dp" path="res://assets/kenney_space-station-kit/Models/FBX format/wall-door-wide.fbx" id="88_jc4uu"]
+[ext_resource type="PackedScene" uid="uid://0rb1q0xksf46" path="res://assets/kenney_space-station-kit/Models/FBX format/wall-door.fbx" id="89_ugrq7"]
+[ext_resource type="PackedScene" uid="uid://bx1txhh330w4j" path="res://assets/kenney_space-station-kit/Models/FBX format/wall-pillar-banner.fbx" id="90_m71ml"]
+[ext_resource type="PackedScene" uid="uid://cvvc713tyiyll" path="res://assets/kenney_space-station-kit/Models/FBX format/wall-pillar.fbx" id="91_fq0xx"]
+[ext_resource type="PackedScene" uid="uid://bylwrmnt883nu" path="res://assets/kenney_space-station-kit/Models/FBX format/wall-switch.fbx" id="92_3kdw3"]
+[ext_resource type="PackedScene" uid="uid://cbqt3wplml2bp" path="res://assets/kenney_space-station-kit/Models/FBX format/wall-window-banner.fbx" id="93_vu4bq"]
+[ext_resource type="PackedScene" uid="uid://y5ce8i5as6ib" path="res://assets/kenney_space-station-kit/Models/FBX format/wall-window-frame.fbx" id="94_1cfdy"]
+[ext_resource type="PackedScene" uid="uid://dxy55hf814bx8" path="res://assets/kenney_space-station-kit/Models/FBX format/wall-window-shutters.fbx" id="95_q7i6o"]
+[ext_resource type="PackedScene" uid="uid://c86qtvbkcwtk0" path="res://assets/kenney_space-station-kit/Models/FBX format/wall-window.fbx" id="96_ln7m1"]
+[ext_resource type="PackedScene" uid="uid://2gul25y8x3sr" path="res://assets/kenney_space-station-kit/Models/FBX format/wall.fbx" id="97_1ydpk"]
+
+[node name="MeshLibrarySource" type="Node3D"]
+
+[node name="Root Scene4" parent="." instance=ExtResource("1_7nkj5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.09336, 0, -0.185859)
+
+[node name="Root Scene5" parent="." instance=ExtResource("2_74wwp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene6" parent="." instance=ExtResource("3_hptu7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene7" parent="." instance=ExtResource("4_2qpbc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene8" parent="." instance=ExtResource("5_jkuhc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene9" parent="." instance=ExtResource("6_330i6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene10" parent="." instance=ExtResource("7_qdock")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene11" parent="." instance=ExtResource("8_the1y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene12" parent="." instance=ExtResource("9_j8cub")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene13" parent="." instance=ExtResource("10_mrqf6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene14" parent="." instance=ExtResource("11_rvqxk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene15" parent="." instance=ExtResource("12_hp3l4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene16" parent="." instance=ExtResource("13_egppb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene17" parent="." instance=ExtResource("14_elatp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.484022, -0.0538514, 1.2703)
+
+[node name="Root Scene18" parent="." instance=ExtResource("15_f5ah2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene19" parent="." instance=ExtResource("16_o8jg4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene20" parent="." instance=ExtResource("17_k1wp3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene21" parent="." instance=ExtResource("18_hms0j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene22" parent="." instance=ExtResource("19_q4311")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene23" parent="." instance=ExtResource("20_vbr1x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene24" parent="." instance=ExtResource("21_42b0k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene25" parent="." instance=ExtResource("22_domth")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene26" parent="." instance=ExtResource("23_rxenn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene27" parent="." instance=ExtResource("24_f7gkr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene28" parent="." instance=ExtResource("25_ty7h1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene29" parent="." instance=ExtResource("26_6rsk6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene30" parent="." instance=ExtResource("27_rutmt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene31" parent="." instance=ExtResource("28_jxtmo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene32" parent="." instance=ExtResource("29_w1vmn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene33" parent="." instance=ExtResource("30_d1k28")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene34" parent="." instance=ExtResource("31_jm13v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene35" parent="." instance=ExtResource("32_j7j77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene36" parent="." instance=ExtResource("33_1igaj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene37" parent="." instance=ExtResource("34_gogb2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene38" parent="." instance=ExtResource("35_21ttm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene39" parent="." instance=ExtResource("36_6weyv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene40" parent="." instance=ExtResource("37_7cjo3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene41" parent="." instance=ExtResource("38_r33mf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene42" parent="." instance=ExtResource("39_2abwk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene43" parent="." instance=ExtResource("40_j48kq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene44" parent="." instance=ExtResource("41_hgt1y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene45" parent="." instance=ExtResource("42_x0li3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene46" parent="." instance=ExtResource("43_6ciov")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene47" parent="." instance=ExtResource("44_08ssn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene48" parent="." instance=ExtResource("45_aqqm6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene49" parent="." instance=ExtResource("46_f0igh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene50" parent="." instance=ExtResource("47_yvqff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene51" parent="." instance=ExtResource("48_7rn4s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene52" parent="." instance=ExtResource("49_ywetr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene53" parent="." instance=ExtResource("50_l1fvc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene54" parent="." instance=ExtResource("51_lafqc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene55" parent="." instance=ExtResource("52_v5say")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene56" parent="." instance=ExtResource("53_nmava")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene57" parent="." instance=ExtResource("54_axmyo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene58" parent="." instance=ExtResource("55_ij603")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene59" parent="." instance=ExtResource("56_jaaox")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene60" parent="." instance=ExtResource("57_uds1o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene61" parent="." instance=ExtResource("58_lwb0v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene62" parent="." instance=ExtResource("59_taf8x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene63" parent="." instance=ExtResource("60_l8jtd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene64" parent="." instance=ExtResource("61_bm880")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene65" parent="." instance=ExtResource("62_ccd2r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene66" parent="." instance=ExtResource("63_nfgd4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene67" parent="." instance=ExtResource("64_cco15")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene68" parent="." instance=ExtResource("65_1dngo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene69" parent="." instance=ExtResource("66_hhhq1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene70" parent="." instance=ExtResource("67_6nsxb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene71" parent="." instance=ExtResource("68_d5eq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene72" parent="." instance=ExtResource("69_y0q2k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene73" parent="." instance=ExtResource("70_wul0t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene74" parent="." instance=ExtResource("71_70ari")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene75" parent="." instance=ExtResource("72_j0ul7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene76" parent="." instance=ExtResource("73_i5uho")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene77" parent="." instance=ExtResource("74_k1kqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene78" parent="." instance=ExtResource("75_ixedr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene79" parent="." instance=ExtResource("76_jrhjj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene80" parent="." instance=ExtResource("77_wbo3m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene81" parent="." instance=ExtResource("78_chawx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene82" parent="." instance=ExtResource("79_8ivcf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene83" parent="." instance=ExtResource("80_r2f55")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene84" parent="." instance=ExtResource("81_ji636")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene85" parent="." instance=ExtResource("82_t85gd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene86" parent="." instance=ExtResource("83_x1xoh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene87" parent="." instance=ExtResource("84_0dbct")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene88" parent="." instance=ExtResource("85_50wyd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene89" parent="." instance=ExtResource("86_0x1ib")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene90" parent="." instance=ExtResource("87_86r07")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene91" parent="." instance=ExtResource("88_jc4uu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene92" parent="." instance=ExtResource("89_ugrq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene93" parent="." instance=ExtResource("90_m71ml")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene94" parent="." instance=ExtResource("91_fq0xx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene95" parent="." instance=ExtResource("92_3kdw3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene96" parent="." instance=ExtResource("93_vu4bq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene97" parent="." instance=ExtResource("94_1cfdy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene98" parent="." instance=ExtResource("95_q7i6o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene99" parent="." instance=ExtResource("96_ln7m1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
+
+[node name="Root Scene100" parent="." instance=ExtResource("97_1ydpk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72771, 0, -0.185859)
