@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://cb3cqicvi8epj"]
+[gd_scene load_steps=9 format=3 uid="uid://cb3cqicvi8epj"]
 
 [ext_resource type="MeshLibrary" uid="uid://de8v38myr24lp" path="res://mesh_library.tres" id="1_1y83m"]
+[ext_resource type="PackedScene" uid="uid://cxjs67py4hhsb" path="res://assets/models/player/nicolas.glb" id="1_yhn6r"]
 [ext_resource type="ArrayMesh" uid="uid://wef2mq7y53ek" path="res://assets/Room #1.obj" id="2_gink8"]
 [ext_resource type="Shader" path="res://scenes/outline.gdshader" id="3_fgpgc"]
 [ext_resource type="Script" path="res://scenes/rotate_cam.gd" id="4_7yn6a"]
@@ -46,6 +47,35 @@ render_target_update_mode = 4
 
 [node name="level" type="Node3D" parent="SubViewportContainer/SubViewport"]
 
+[node name="nicolas" parent="SubViewportContainer/SubViewport/level" instance=ExtResource("1_yhn6r")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 1.33447, 1.6311, 0.328735)
+script = ExtResource("4_7yn6a")
+
+[node name="Skeleton3D" parent="SubViewportContainer/SubViewport/level/nicolas/Armature" index="0"]
+bones/0/rotation = Quaternion(0.0140627, 0.706967, -0.0140627, 0.706967)
+bones/1/rotation = Quaternion(-0.145327, 0.119556, 0.839268, 0.510113)
+bones/2/rotation = Quaternion(-0.324439, 0.2068, 0.182911, 0.904719)
+bones/3/rotation = Quaternion(0.233985, -0.285729, 0.367925, 0.853371)
+bones/4/rotation = Quaternion(-0.0657603, 0.013629, 0.0842486, 0.994179)
+bones/5/rotation = Quaternion(-0.128909, -5.24785e-08, -2.53531e-08, 0.991656)
+bones/6/rotation = Quaternion(0.256201, 1.59312e-07, 7.56383e-08, 0.966623)
+bones/7/rotation = Quaternion(0.84247, 0.537847, -0.0167074, 0.0261706)
+bones/7/scale = Vector3(1, 1, 1)
+bones/8/rotation = Quaternion(0.285541, -0.464811, 0.179877, 0.818573)
+bones/8/scale = Vector3(1, 1, 1)
+bones/9/rotation = Quaternion(-0.0195673, 0.188831, 0.406954, 0.893504)
+bones/10/rotation = Quaternion(0.0641735, 0.275134, 0.0928135, 0.954761)
+bones/11/rotation = Quaternion(0, 0.707107, 0.707107, 0)
+bones/12/rotation = Quaternion(-0.707107, 5.33851e-08, -5.33851e-08, 0.707107)
+bones/13/scale = Vector3(1, 1, 1)
+bones/14/rotation = Quaternion(-2.33235e-08, 5.33397e-09, 0.735882, 0.67711)
+bones/14/scale = Vector3(1, 1, 1)
+bones/15/rotation = Quaternion(0.5, -0.5, 0.5, -0.5)
+bones/16/rotation = Quaternion(-0.5, -0.5, 0.5, -0.5)
+bones/17/rotation = Quaternion(-1.1139e-10, 1.48187e-07, -0.0415587, 0.999136)
+bones/17/scale = Vector3(1, 1, 1)
+bones/18/rotation = Quaternion(0.520347, -0.478789, -0.520347, -0.478789)
+
 [node name="GridMap" type="GridMap" parent="SubViewportContainer/SubViewport/level"]
 visible = false
 mesh_library = ExtResource("1_1y83m")
@@ -76,10 +106,11 @@ mesh = SubResource("QuadMesh_cgpbj")
 
 [node name="Node3D" type="Node3D" parent="SubViewportContainer/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.516977, 0.579166, 0.584766)
-script = ExtResource("4_7yn6a")
 
 [node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport/Node3D"]
 transform = Transform3D(0.707107, -0.353553, 0.612372, 0, 0.866025, 0.5, -0.707107, -0.353553, 0.612372, 1.842, 3.359, 1.586)
 environment = SubResource("Environment_iqygu")
 projection = 1
 size = 2.802
+
+[editable path="SubViewportContainer/SubViewport/level/nicolas"]
