@@ -1,10 +1,24 @@
-[gd_scene load_steps=7 format=3 uid="uid://bpt38qtfed741"]
+[gd_scene load_steps=11 format=3 uid="uid://bpt38qtfed741"]
 
 [ext_resource type="PackedScene" uid="uid://yfov34a37w28" path="res://scenes/entities/player.tscn" id="2_qi41x"]
-[ext_resource type="MeshLibrary" uid="uid://de8v38myr24lp" path="res://mesh_library.tres" id="3_rlub2"]
 [ext_resource type="Shader" path="res://scenes/outline.gdshader" id="4_1b1vb"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_epume"]
+[sub_resource type="NavigationMesh" id="NavigationMesh_gowux"]
+vertices = PackedVector3Array(-0.0545478, 1.18668, -1.11302, 0.195452, 1.18668, -5.86302, -6.05455, 1.18668, -5.86302, -6.05455, 1.18668, -1.11302, 1.44545, 1.18668, -1.11302, 1.69545, 1.18668, -0.113023, 5.94545, 1.18668, -0.113023, 0.195452, 1.18668, -5.86302, -0.0545478, 1.18668, -1.11302, 1.44545, 1.18668, -1.11302, 1.44545, 1.18668, -1.11302, 5.94545, 1.18668, -0.113023, 5.94545, 1.18668, -5.86302, 0.195452, 1.18668, -5.86302, 5.94545, 1.18668, -0.113023, 1.69545, 1.18668, -0.113023, 1.44545, 1.18668, 1.13698, 1.44545, 1.18668, 1.13698, -0.0545478, 1.18668, 1.13698, 0.195452, 1.18668, 5.88698, 5.94545, 1.18668, 5.88698, 5.94545, 1.18668, -0.113023, 1.44545, 1.18668, 1.13698, 0.195452, 1.18668, 5.88698, -0.0545478, 1.18668, 1.13698, -6.05455, 1.18668, 1.13698, -6.05455, 1.18668, 5.88698, 0.195452, 1.18668, 5.88698)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Array(6, 5, 4), PackedInt32Array(9, 8, 7), PackedInt32Array(11, 10, 12), PackedInt32Array(12, 10, 13), PackedInt32Array(14, 16, 15), PackedInt32Array(19, 18, 17), PackedInt32Array(23, 22, 20), PackedInt32Array(20, 22, 21), PackedInt32Array(25, 24, 26), PackedInt32Array(26, 24, 27)]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5ojdx"]
+albedo_color = Color(0.38, 1, 0.917333, 1)
+metallic_specular = 0.44
+
+[sub_resource type="BoxMesh" id="BoxMesh_f6asu"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ilwpv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_il4x4"]
+albedo_color = Color(1, 0.803333, 0.41, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5s6qa"]
 render_priority = 0
 shader = ExtResource("4_1b1vb")
 shader_parameter/depth_threshold = 0.05
@@ -16,7 +30,7 @@ shader_parameter/normal_edge_bias = Vector3(1, 1, 1)
 shader_parameter/light_direction = Vector3(-0.96, -0.18, 0.2)
 
 [sub_resource type="QuadMesh" id="QuadMesh_cgpbj"]
-material = SubResource("ShaderMaterial_epume")
+material = SubResource("ShaderMaterial_5s6qa")
 flip_faces = true
 size = Vector2(2, 2)
 
@@ -45,37 +59,54 @@ render_target_update_mode = 4
 
 [node name="level" type="Node3D" parent="SubViewportContainer/SubViewport"]
 
-[node name="GridMap" type="GridMap" parent="SubViewportContainer/SubViewport/level"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.027523, -0.128234, 0.00276995)
-mesh_library = ExtResource("3_rlub2")
-cell_size = Vector3(1, 0.3, 1)
-data = {
-"cells": PackedInt32Array(0, 0, 39, 1, 0, 39, 1, 1, 39, 0, 1, 39, 65535, 1, 39, 65535, 0, 39, 65535, 65535, 39, 0, 65535, 39, 1, 65535, 39, 2, 65535, 39, 2, 0, 39, 2, 1, 39, 2, 2, 39, 0, 2, 39, 65535, 2, 39, 65535, 3, 64, 0, 3, 64, 1, 3, 64, 2, 3, 64, -65534, 4, 39, -2, 3, 39, -1, 3, 39, -65536, 3, 39, -65535, 3, 39, -65534, 3, 39, -65533, 3, 39, -65532, 3, 39, -9, 65527, 39, -9, 65528, 39, -8, 65529, 39, -7, 65530, 39, -7, 65531, 39, -6, 65531, 39, -6, 65532, 39, -5, 65532, 39, -5, 65533, 39, -4, 65534, 39, -4, 65535, 39, -3, 65535, 39, -3, 0, 39, -2, 0, 39, -2, 1, 39, -1, 1, 39, -1, 2, 39, -65536, 2, 39, -65536, 4, 39, -65535, 4, 39, -65535, 5, 39, -1, 4, 39, -2, 4, 39, -3, 4, 39, -2, 2, 39, -3, 1, 39, -3, 65534, 39, -3, 65533, 39, -4, 65532, 39, -4, 65531, 39, -4, 65530, 39, -4, 65529, 39, -4, 65528, 39, -5, 65528, 39, -4, 65533, 39, -4, 3, 39, -4, 2, 39, -4, 1, 39, -4, 0, 39, -5, 0, 39, -5, 65535, 39, -5, 65534, 39, -6, 65533, 39, -8, 65528, 39, -8, 65531, 39, -7, 65532, 39, -7, 65533, 39, -7, 65534, 39, -7, 65535, 39, -7, 0, 39, -8, 65533, 39, -9, 65531, 39, -9, 65530, 39, -9, 65529, 39, -10, 65528, 39, -10, 65527, 39, -10, 65526, 39, -10, 65529, 39, -10, 65530, 39, -10, 65531, 39, -10, 65532, 39, -10, 65533, 39, -10, 65534, 39, -10, 65535, 39, -10, 0, 39, -10, 1, 39, -10, 2, 39, -10, 3, 39, -10, 4, 39, -10, 5, 39, -10, 6, 39, -9, 65526, 39, -9, 65532, 39, -9, 65533, 39, -9, 65534, 39, -9, 65535, 39, -9, 0, 39, -9, 1, 39, -9, 2, 39, -9, 3, 39, -9, 4, 39, -9, 5, 39, -9, 6, 39, -8, 65526, 39, -8, 65527, 39, -8, 65530, 39, -8, 65532, 39, -8, 65534, 39, -8, 65535, 39, -8, 0, 39, -8, 1, 39, -8, 2, 39, -8, 3, 39, -8, 4, 39, -8, 5, 39, -8, 6, 39, -7, 65526, 39, -7, 65527, 39, -7, 65528, 39, -7, 65529, 39, -7, 1, 39, -7, 2, 39, -7, 3, 39, -7, 4, 39, -7, 5, 39, -7, 6, 39, -6, 65526, 39, -6, 65527, 39, -6, 65528, 39, -6, 65529, 39, -6, 65530, 39, -6, 65534, 39, -6, 65535, 39, -6, 0, 39, -6, 1, 39, -6, 2, 39, -6, 3, 39, -6, 4, 39, -6, 5, 39, -6, 6, 39, -5, 65526, 39, -5, 65527, 39, -5, 65529, 39, -5, 65530, 39, -5, 65531, 39, -5, 1, 39, -5, 2, 39, -5, 3, 39, -5, 4, 39, -5, 5, 39, -5, 6, 39, -4, 65526, 39, -4, 65527, 39, -4, 4, 39, -4, 5, 39, -4, 6, 39, -3, 65526, 39, -3, 65527, 39, -3, 65528, 39, -3, 65529, 39, -3, 65530, 39, -3, 65531, 39, -3, 65532, 39, -3, 2, 39, -3, 3, 39, -3, 5, 39, -3, 6, 39, -2, 65526, 39, -2, 65527, 39, -2, 65528, 39, -2, 65529, 39, -2, 65530, 39, -2, 65531, 39, -2, 65532, 39, -2, 65533, 39, -2, 65534, 39, -2, 65535, 39, -2, 5, 39, -2, 6, 39, -1, 65526, 39, -1, 65527, 39, -1, 65528, 39, -1, 65529, 39, -1, 65530, 39, -1, 65531, 39, -1, 65532, 39, -1, 65533, 39, -1, 65534, 39, -1, 65535, 39, -1, 0, 39, -1, 5, 39, -1, 6, 39, -65536, 65526, 39, -65536, 65527, 39, -65536, 65528, 39, -65536, 65529, 39, -65536, 65530, 39, -65536, 65531, 39, -65536, 65532, 39, -65536, 65533, 39, -65536, 65534, 39, -65536, 65535, 39, -65536, 0, 39, -65536, 1, 39, -65536, 5, 39, -65536, 6, 39, -65535, 65526, 39, -65535, 65527, 39, -65535, 65528, 39, -65535, 65529, 39, -65535, 65530, 39, -65535, 65531, 39, -65535, 65532, 39, -65535, 65533, 39, -65535, 65534, 39, -65535, 65535, 39, -65535, 0, 39, -65535, 1, 39, -65535, 2, 39, -65535, 6, 39, -65534, 65526, 39, -65534, 65527, 39, -65534, 65528, 39, -65534, 65529, 39, -65534, 65530, 39, -65534, 65531, 39, -65534, 65532, 39, -65534, 65533, 39, -65534, 65534, 39, -65534, 65535, 39, -65534, 0, 39, -65534, 1, 39, -65534, 2, 39, -65534, 5, 39, -65534, 6, 39, -65533, 65526, 39, -65533, 65527, 39, -65533, 65528, 39, -65533, 65529, 39, -65533, 65530, 39, -65533, 65531, 39, -65533, 65532, 39, -65533, 65533, 39, -65533, 65534, 39, -65533, 65535, 39, -65533, 0, 39, -65533, 1, 39, -65533, 2, 39, -65533, 4, 39, -65533, 5, 39, -65533, 6, 39, -65532, 65526, 39, -65532, 65527, 39, -65532, 65528, 39, -65532, 65529, 39, -65532, 65530, 39, -65532, 65531, 39, -65532, 65532, 39, -65532, 65533, 39, -65532, 65534, 39, -65532, 65535, 39, -65532, 0, 39, -65532, 1, 39, -65532, 2, 39, -65532, 4, 39, -65532, 5, 39, -65532, 6, 39, -65531, 65526, 39, -65531, 65527, 39, -65531, 65528, 39, -65531, 65529, 39, -65531, 65530, 39, -65531, 65531, 39, -65531, 65532, 39, -65531, 65533, 39, -65531, 65534, 39, -65531, 65535, 39, -65531, 0, 39, -65531, 1, 39, -65531, 2, 39, -65531, 3, 39, -65531, 4, 39, -65531, 5, 39, -65531, 6, 39, -65530, 65526, 39, -65530, 65527, 39, -65530, 65528, 39, -65530, 65529, 39, -65530, 65530, 39, -65530, 65531, 39, -65530, 65532, 39, -65530, 65533, 39, -65530, 65534, 39, -65530, 65535, 39, -65530, 0, 39, -65530, 1, 39, -65530, 2, 39, -65530, 3, 39, -65530, 4, 39, -65530, 5, 39, -65530, 6, 39, -65529, 65526, 39, -65529, 65527, 39, -65529, 65528, 39, -65529, 65529, 39, -65529, 65530, 39, -65529, 65531, 39, -65529, 65532, 39, -65529, 65533, 39, -65529, 65534, 39, -65529, 65535, 39, -65529, 0, 39, -65529, 1, 39, -65529, 2, 39, -65529, 3, 39, -65529, 4, 39, -65529, 5, 39, -65529, 6, 39, -65528, 65526, 39, -65528, 65527, 39, -65528, 65528, 39, -65528, 65529, 39, -65528, 65530, 39, -65528, 65531, 39, -65528, 65532, 39, -65528, 65533, 39, -65528, 65534, 39, -65528, 65535, 39, -65528, 0, 39, -65528, 1, 39, -65528, 2, 39, -65528, 3, 39, -65528, 4, 39, -65528, 5, 39, -65528, 6, 39, 3, 3, 64, 4, 3, 64, 65534, 3, 53, 65534, 2, 1441856, 65534, 1, 1441856, 65534, 0, 1441856, 65534, 65535, 1441856, 5, 3, 64, 131071, 65535, 81, 65536, 65535, 81, 65537, 65535, 81, 65538, 65535, 81, 65539, 65535, 81, 65540, 65535, 81, 65541, 65535, 81, 65541, 0, 81, 65541, 1, 81, 65541, 2, 81, 65540, 2, 81, 65539, 2, 81, 65538, 2, 81, 65536, 2, 81, 131071, 1, 81, 65536, 1, 81, 65537, 1, 81, 65537, 0, 81, 65536, 0, 81, 131071, 0, 81, 65538, 0, 81, 65538, 1, 81, 65537, 2, 81, 65539, 1, 81, 65539, 0, 81, 65540, 0, 81, 65540, 1, 81, 3, 2, 39, 4, 2, 39, 5, 2, 39, 5, 1, 39, 5, 0, 39, 5, 65535, 39, 4, 65535, 39, 4, 0, 39, 3, 0, 39, 4, 1, 39, 3, 1, 39, 3, 65535, 39, 65531, 0, 50, 65530, 0, 50, 65530, 1, 50, 65530, 2, 50, 65531, 2, 50, 65531, 1, 50, 65530, 3, 50, 65531, 3, 50, 65532, 3, 50, 65532, 4, 50, 65531, 4, 50, 65530, 4, 50, 65532, 65535, 47, 65532, 0, 47, 65532, 1, 47, 65532, 2, 47, 65533, 65535, 47, 65533, 0, 47, 65533, 1, 47, 65533, 2, 47, 1, 2, 39, 65534, 65534, 1441845, 65535, 65534, 655424, 0, 65534, 655424, 1, 65534, 655424, 5, 65534, 655416, 4, 65534, 655416, 3, 65534, 655424, 2, 65534, 655424)
-}
-metadata/_editor_floor_ = Vector3(0, 1, 0)
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="SubViewportContainer/SubViewport/level"]
+transform = Transform3D(1.00136, 0, 0, 0, 1.00136, 0, 0, 0, 1.00136, 0, 0, 0)
+navigation_mesh = SubResource("NavigationMesh_gowux")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/level/NavigationRegion3D"]
+transform = Transform3D(7.1175, 0, 0, 0, -3.7454e-08, -5.32432, 0, 0.856848, -2.32733e-07, -2.43495, 3.22695, 0)
+material_override = SubResource("StandardMaterial3D_5ojdx")
+mesh = SubResource("BoxMesh_f6asu")
+skeleton = NodePath("../MeshInstance3D")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/level/NavigationRegion3D/MeshInstance3D2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/level/NavigationRegion3D/MeshInstance3D2/StaticBody3D"]
+shape = SubResource("BoxShape3D_ilwpv")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/level/NavigationRegion3D"]
+transform = Transform3D(13.1091, 0, 0, 0, 0.268973, 0, 0, 0, 12.726, 0, 0.571167, 0)
+material_override = SubResource("StandardMaterial3D_il4x4")
+mesh = SubResource("BoxMesh_f6asu")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/level/NavigationRegion3D/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/level/NavigationRegion3D/MeshInstance3D/StaticBody3D"]
+shape = SubResource("BoxShape3D_ilwpv")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="SubViewportContainer/SubViewport/level"]
-transform = Transform3D(-0.95424, 0, 0.299041, 0, 1, 0, -0.299041, 0, -0.95424, 0.452332, 1.44031, 0.37741)
+transform = Transform3D(-0.95424, 0, 0.299041, 0, 1, 0, -0.299041, 0, -0.95424, 5.67422, 1.44031, -5.12991)
 light_energy = 0.238
 light_indirect_energy = 1.61
 light_size = 0.048
 light_specular = 1.719
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport/level"]
-transform = Transform3D(0.617961, -0.131339, 0.77516, 0.0818719, 0.991337, 0.102699, -0.781934, 1.16517e-08, 0.623361, 3.97479, 3.01001, 2.92426)
+transform = Transform3D(0.992246, -0.0907451, 0.0849273, 0.0818719, 0.991337, 0.102698, -0.093511, -0.094949, 0.99108, 5.1116, 3.01001, -0.0964823)
 light_energy = 2.429
 
-[node name="Player" parent="SubViewportContainer/SubViewport/level" instance=ExtResource("2_qi41x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0954, 0.369454, 0.710724)
+[node name="Player" parent="SubViewportContainer/SubViewport/level" node_paths=PackedStringArray("target") instance=ExtResource("2_qi41x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0954, 1.38642, 0.710724)
+target = NodePath("../Marker3D")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport"]
+[node name="Marker3D" type="Marker3D" parent="SubViewportContainer/SubViewport/level"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.37126, 0, -1.95105)
+
+[node name="PostProcessing" type="MeshInstance3D" parent="SubViewportContainer/SubViewport"]
 mesh = SubResource("QuadMesh_cgpbj")
 
-[node name="Node3D" type="Node3D" parent="SubViewportContainer/SubViewport"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.185, 0.375, 2.035)
-
-[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport/Node3D"]
-transform = Transform3D(0.707107, -0.353553, 0.612372, 0, 0.866025, 0.5, -0.707107, -0.353553, 0.612372, 1.842, 3.359, 1.586)
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(0.707107, -0.340446, 0.619755, 0, 0.876466, 0.481463, -0.707107, -0.340446, 0.619755, 17.0008, 14.834, 15.0222)
 environment = SubResource("Environment_iqygu")
 projection = 1
-size = 2.802
+size = 8.207

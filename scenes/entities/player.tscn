@@ -1,9 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://yfov34a37w28"]
+[gd_scene load_steps=5 format=3 uid="uid://yfov34a37w28"]
 
 [ext_resource type="PackedScene" uid="uid://cxjs67py4hhsb" path="res://assets/models/player/nicolas.glb" id="1_0xhsu"]
+[ext_resource type="Script" path="res://scripts/CharacterBody3D.gd" id="1_fbgyn"]
 [ext_resource type="Script" path="res://scenes/rotate_cam.gd" id="2_1rco2"]
 
-[node name="Player" type="Node3D"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ujwqk"]
+radius = 0.140503
+height = 0.999772
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+script = ExtResource("1_fbgyn")
 
 [node name="nicolas" parent="." instance=ExtResource("1_0xhsu")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
@@ -32,5 +38,14 @@ bones/16/rotation = Quaternion(-0.5, -0.5, 0.5, -0.5)
 bones/17/rotation = Quaternion(-1.1139e-10, 1.48187e-07, -0.0415587, 0.999136)
 bones/17/scale = Vector3(1, 1, 1)
 bones/18/rotation = Quaternion(0.520347, -0.478789, -0.520347, -0.478789)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.483, 0)
+shape = SubResource("CapsuleShape3D_ujwqk")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+debug_enabled = true
+
+[node name="Player" type="Node3D" parent="."]
 
 [editable path="nicolas"]
