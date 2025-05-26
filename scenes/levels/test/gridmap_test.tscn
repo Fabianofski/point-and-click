@@ -1,7 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://bpt38qtfed741"]
+[gd_scene load_steps=10 format=3 uid="uid://bpt38qtfed741"]
 
 [ext_resource type="PackedScene" uid="uid://yfov34a37w28" path="res://scenes/entities/player.tscn" id="2_qi41x"]
-[ext_resource type="Shader" path="res://scenes/outline.gdshader" id="4_1b1vb"]
+[ext_resource type="PackedScene" uid="uid://b1c7anxbg7hk4" path="res://scenes/post_processing.tscn" id="2_vjtht"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_gowux"]
 vertices = PackedVector3Array(-0.0545478, 1.18668, -1.11302, 0.195452, 1.18668, -5.86302, -6.05455, 1.18668, -5.86302, -6.05455, 1.18668, -1.11302, 1.44545, 1.18668, -1.11302, 1.69545, 1.18668, -0.113023, 5.94545, 1.18668, -0.113023, 0.195452, 1.18668, -5.86302, -0.0545478, 1.18668, -1.11302, 1.44545, 1.18668, -1.11302, 1.44545, 1.18668, -1.11302, 5.94545, 1.18668, -0.113023, 5.94545, 1.18668, -5.86302, 0.195452, 1.18668, -5.86302, 5.94545, 1.18668, -0.113023, 1.69545, 1.18668, -0.113023, 1.44545, 1.18668, 1.13698, 1.44545, 1.18668, 1.13698, -0.0545478, 1.18668, 1.13698, 0.195452, 1.18668, 5.88698, 5.94545, 1.18668, 5.88698, 5.94545, 1.18668, -0.113023, 1.44545, 1.18668, 1.13698, 0.195452, 1.18668, 5.88698, -0.0545478, 1.18668, 1.13698, -6.05455, 1.18668, 1.13698, -6.05455, 1.18668, 5.88698, 0.195452, 1.18668, 5.88698)
@@ -11,28 +11,15 @@ polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Arr
 albedo_color = Color(0.38, 1, 0.917333, 1)
 metallic_specular = 0.44
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eo02w"]
+
 [sub_resource type="BoxMesh" id="BoxMesh_f6asu"]
+material = SubResource("StandardMaterial3D_eo02w")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ilwpv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_il4x4"]
 albedo_color = Color(1, 0.803333, 0.41, 1)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_5s6qa"]
-render_priority = 0
-shader = ExtResource("4_1b1vb")
-shader_parameter/depth_threshold = 0.05
-shader_parameter/reverse_depth_threshold = 0.25
-shader_parameter/normal_threshold = 0.6
-shader_parameter/darken_amount = 0.3
-shader_parameter/lighten_amount = 1.5
-shader_parameter/normal_edge_bias = Vector3(1, 1, 1)
-shader_parameter/light_direction = Vector3(-0.96, -0.18, 0.2)
-
-[sub_resource type="QuadMesh" id="QuadMesh_cgpbj"]
-material = SubResource("ShaderMaterial_5s6qa")
-flip_faces = true
-size = Vector2(2, 2)
 
 [sub_resource type="Environment" id="Environment_iqygu"]
 background_mode = 1
@@ -41,6 +28,7 @@ ambient_light_color = Color(0, 0, 0.682353, 1)
 ambient_light_energy = 3.52
 
 [node name="PixelatedScene" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0276086, 0, -0.0200596)
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 texture_filter = 1
@@ -50,11 +38,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 stretch = true
-stretch_shrink = 4
+stretch_shrink = 3
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
 handle_input_locally = false
-size = Vector2i(288, 162)
+size = Vector2i(384, 216)
 render_target_update_mode = 4
 
 [node name="level" type="Node3D" parent="SubViewportContainer/SubViewport"]
@@ -84,29 +72,23 @@ mesh = SubResource("BoxMesh_f6asu")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/level/NavigationRegion3D/MeshInstance3D/StaticBody3D"]
 shape = SubResource("BoxShape3D_ilwpv")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="SubViewportContainer/SubViewport/level"]
-transform = Transform3D(-0.95424, 0, 0.299041, 0, 1, 0, -0.299041, 0, -0.95424, 5.67422, 1.44031, -5.12991)
-light_energy = 0.238
-light_indirect_energy = 1.61
-light_size = 0.048
-light_specular = 1.719
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport/level"]
 transform = Transform3D(0.992246, -0.0907451, 0.0849273, 0.0818719, 0.991337, 0.102698, -0.093511, -0.094949, 0.99108, 5.1116, 3.01001, -0.0964823)
-light_energy = 2.429
+light_energy = 1.178
 
 [node name="Player" parent="SubViewportContainer/SubViewport/level" node_paths=PackedStringArray("target") instance=ExtResource("2_qi41x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0954, 1.38642, 0.710724)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.39443, 1.38642, -1.68222)
 target = NodePath("../Marker3D")
 
 [node name="Marker3D" type="Marker3D" parent="SubViewportContainer/SubViewport/level"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.37126, 0, -1.95105)
-
-[node name="PostProcessing" type="MeshInstance3D" parent="SubViewportContainer/SubViewport"]
-mesh = SubResource("QuadMesh_cgpbj")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.33926, 1.19514, -5.10753)
 
 [node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport"]
-transform = Transform3D(0.707107, -0.340446, 0.619755, 0, 0.876466, 0.481463, -0.707107, -0.340446, 0.619755, 17.0008, 14.834, 15.0222)
+transform = Transform3D(0.707107, -0.340446, 0.619755, 0, 0.876466, 0.481463, -0.707107, -0.340446, 0.619755, 7.35644, 7.34168, 5.37784)
 environment = SubResource("Environment_iqygu")
 projection = 1
-size = 8.207
+size = 4.423
+
+[node name="PostProcessing" parent="SubViewportContainer/SubViewport/Camera3D" instance=ExtResource("2_vjtht")]
+transform = Transform3D(0.486448, 0, -0.486448, -0.243224, 0.595775, -0.243224, 0.421276, 0.34397, 0.421276, -0.133085, -1.80905, -4.74297)
+extra_cull_margin = 16384.0

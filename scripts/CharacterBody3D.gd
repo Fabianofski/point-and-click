@@ -15,9 +15,11 @@ func _physics_process(delta):
 		var direction = nav.get_next_path_position() - global_position
 		direction = direction.normalized()
 		
-		# look_at(global_transform.origin + direction, Vector3.UP)
+		look_at(global_transform.origin + direction, Vector3.UP)
 	
 		velocity = velocity.lerp(direction * SPEED, ACCEL * delta)
+	else: 
+		velocity = Vector3.ZERO
 	
 	if not is_on_floor():
 		velocity += get_gravity() * delta

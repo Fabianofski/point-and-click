@@ -1,25 +1,11 @@
 [gd_scene load_steps=8 format=3 uid="uid://cb3cqicvi8epj"]
 
-[ext_resource type="MeshLibrary" uid="uid://de8v38myr24lp" path="res://mesh_library.tres" id="1_1y83m"]
+[ext_resource type="MeshLibrary" uid="uid://dnkucw0qwbm7m" path="res://mesh_library.tres" id="1_1y83m"]
 [ext_resource type="PackedScene" uid="uid://cxjs67py4hhsb" path="res://assets/models/player/nicolas.glb" id="1_yhn6r"]
-[ext_resource type="Shader" path="res://scenes/outline.gdshader" id="3_fgpgc"]
 [ext_resource type="Script" path="res://scenes/rotate_cam.gd" id="4_7yn6a"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_epume"]
-render_priority = 0
-shader = ExtResource("3_fgpgc")
-shader_parameter/depth_threshold = 0.05
-shader_parameter/reverse_depth_threshold = 0.25
-shader_parameter/normal_threshold = 0.6
-shader_parameter/darken_amount = 0.3
-shader_parameter/lighten_amount = 1.5
-shader_parameter/normal_edge_bias = Vector3(1, 1, 1)
-shader_parameter/light_direction = Vector3(-0.96, -0.18, 0.2)
-
-[sub_resource type="QuadMesh" id="QuadMesh_cgpbj"]
-material = SubResource("ShaderMaterial_epume")
-flip_faces = true
-size = Vector2(2, 2)
+[ext_resource type="PackedScene" uid="uid://ccomucbescfo7" path="res://assets/kenney_space-station-kit/Models/FBX format/chair.fbx" id="4_cby77"]
+[ext_resource type="PackedScene" uid="uid://b1c7anxbg7hk4" path="res://scenes/post_processing.tscn" id="4_l1qfp"]
+[ext_resource type="PackedScene" uid="uid://bnuyku4yyotr1" path="res://assets/kenney_space-station-kit/Models/FBX format/computer.fbx" id="6_7kk8f"]
 
 [sub_resource type="Environment" id="Environment_iqygu"]
 background_mode = 1
@@ -37,11 +23,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 stretch = true
-stretch_shrink = 4
+stretch_shrink = 3
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
 handle_input_locally = false
-size = Vector2i(288, 162)
+size = Vector2i(384, 216)
 render_target_update_mode = 4
 
 [node name="level" type="Node3D" parent="SubViewportContainer/SubViewport"]
@@ -98,8 +84,8 @@ light_specular = 1.719
 transform = Transform3D(0.617961, -0.131339, 0.77516, 0.0818719, 0.991337, 0.102699, -0.781934, 1.16517e-08, 0.623361, 3.97479, 3.01001, 2.92426)
 light_energy = 2.429
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport"]
-mesh = SubResource("QuadMesh_cgpbj")
+[node name="Root Scene" parent="SubViewportContainer/SubViewport/level" instance=ExtResource("4_cby77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.57336, 0.331299, -1.03882)
 
 [node name="Node3D" type="Node3D" parent="SubViewportContainer/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.516977, 0.579166, 0.584766)
@@ -109,5 +95,11 @@ transform = Transform3D(0.707107, -0.353553, 0.612372, 0, 0.866025, 0.5, -0.7071
 environment = SubResource("Environment_iqygu")
 projection = 1
 size = 2.802
+
+[node name="PostProcessing" parent="SubViewportContainer/SubViewport/Node3D/Camera3D" instance=ExtResource("4_l1qfp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Root Scene" parent="." instance=ExtResource("6_7kk8f")]
+transform = Transform3D(0.0498375, -0.656189, 0.752949, 0.419775, 0.697828, 0.580366, -0.906259, 0.287146, 0.31023, -1.3667, 0, -3.28357)
 
 [editable path="SubViewportContainer/SubViewport/level/nicolas"]
