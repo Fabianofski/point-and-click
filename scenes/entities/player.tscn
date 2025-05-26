@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://yfov34a37w28"]
+[gd_scene load_steps=4 format=3 uid="uid://yfov34a37w28"]
 
 [ext_resource type="PackedScene" uid="uid://cxjs67py4hhsb" path="res://assets/models/player/nicolas.glb" id="1_0xhsu"]
-[ext_resource type="Script" path="res://scripts/CharacterBody3D.gd" id="1_fbgyn"]
-[ext_resource type="Script" path="res://scenes/rotate_cam.gd" id="2_1rco2"]
+[ext_resource type="Script" uid="uid://bgcuf6jrcgi7x" path="res://scripts/CharacterBody3D.gd" id="1_fbgyn"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ujwqk"]
 radius = 0.140503
@@ -16,14 +15,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.483, 0)
 shape = SubResource("CapsuleShape3D_ujwqk")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
-target_desired_distance = 0.1
+target_desired_distance = 0.5
 debug_enabled = true
 
 [node name="Player" type="Node3D" parent="."]
 
 [node name="nicolas" parent="." instance=ExtResource("1_0xhsu")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
-script = ExtResource("2_1rco2")
 
 [node name="Skeleton3D" parent="nicolas/Armature" index="0"]
 bones/0/position = Vector3(-0.2, 2.2, 8.74229e-09)
@@ -49,6 +47,6 @@ bones/14/rotation = Quaternion(-2.33235e-08, 5.33397e-09, 0.735882, 0.67711)
 bones/14/scale = Vector3(1, 1, 1)
 bones/17/rotation = Quaternion(-1.1139e-10, 1.48187e-07, -0.0415587, 0.999136)
 bones/17/scale = Vector3(1, 1, 1)
-bones/18/rotation = Quaternion(0.520348, -0.478789, -0.520347, -0.478789)
+bones/18/rotation = Quaternion(0.520347, -0.478789, -0.520347, -0.478789)
 
 [editable path="nicolas"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://b1c7anxbg7hk4"]
 
-[ext_resource type="Shader" path="res://scenes/outline.gdshader" id="1_alcnd"]
+[ext_resource type="Shader" uid="uid://cpbsusq7ue3x7" path="res://scenes/outline.gdshader" id="1_alcnd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_epume"]
 render_priority = 1
@@ -19,6 +19,6 @@ flip_faces = true
 size = Vector2(2, 2)
 
 [node name="PostProcessing" type="MeshInstance3D"]
-transform = Transform3D(0.707107, 0, -0.707107, -0.353553, 0.866026, -0.353553, 0.612373, 0.5, 0.612373, -0.133085, -1.80905, -4.74297)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("QuadMesh_cgpbj")
 skeleton = NodePath("../../..")

@@ -2,7 +2,7 @@
 
 [ext_resource type="MeshLibrary" uid="uid://dnkucw0qwbm7m" path="res://mesh_library.tres" id="1_1y83m"]
 [ext_resource type="PackedScene" uid="uid://cxjs67py4hhsb" path="res://assets/models/player/nicolas.glb" id="1_yhn6r"]
-[ext_resource type="Script" path="res://scenes/rotate_cam.gd" id="4_7yn6a"]
+[ext_resource type="Script" uid="uid://c4p1561l0ptn8" path="res://scenes/rotate_cam.gd" id="4_7yn6a"]
 [ext_resource type="PackedScene" uid="uid://ccomucbescfo7" path="res://assets/kenney_space-station-kit/Models/FBX format/chair.fbx" id="4_cby77"]
 [ext_resource type="PackedScene" uid="uid://b1c7anxbg7hk4" path="res://scenes/post_processing.tscn" id="4_l1qfp"]
 [ext_resource type="PackedScene" uid="uid://bnuyku4yyotr1" path="res://assets/kenney_space-station-kit/Models/FBX format/computer.fbx" id="6_7kk8f"]
