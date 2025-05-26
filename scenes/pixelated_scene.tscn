@@ -1,11 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cb3cqicvi8epj"]
+[gd_scene load_steps=6 format=3 uid="uid://cb3cqicvi8epj"]
 
 [ext_resource type="MeshLibrary" uid="uid://dnkucw0qwbm7m" path="res://mesh_library.tres" id="1_1y83m"]
 [ext_resource type="PackedScene" uid="uid://cxjs67py4hhsb" path="res://assets/models/player/nicolas.glb" id="1_yhn6r"]
-[ext_resource type="Script" uid="uid://c4p1561l0ptn8" path="res://scenes/rotate_cam.gd" id="4_7yn6a"]
 [ext_resource type="PackedScene" uid="uid://ccomucbescfo7" path="res://assets/kenney_space-station-kit/Models/FBX format/chair.fbx" id="4_cby77"]
 [ext_resource type="PackedScene" uid="uid://b1c7anxbg7hk4" path="res://scenes/post_processing.tscn" id="4_l1qfp"]
-[ext_resource type="PackedScene" uid="uid://bnuyku4yyotr1" path="res://assets/kenney_space-station-kit/Models/FBX format/computer.fbx" id="6_7kk8f"]
 
 [sub_resource type="Environment" id="Environment_iqygu"]
 background_mode = 1
@@ -34,7 +32,6 @@ render_target_update_mode = 4
 
 [node name="nicolas" parent="SubViewportContainer/SubViewport/level" instance=ExtResource("1_yhn6r")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 1.33447, 1.6311, 0.328735)
-script = ExtResource("4_7yn6a")
 
 [node name="Skeleton3D" parent="SubViewportContainer/SubViewport/level/nicolas/Armature" index="0"]
 bones/0/rotation = Quaternion(0.0140627, 0.706967, -0.0140627, 0.706967)
@@ -97,9 +94,5 @@ projection = 1
 size = 2.802
 
 [node name="PostProcessing" parent="SubViewportContainer/SubViewport/Node3D/Camera3D" instance=ExtResource("4_l1qfp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-
-[node name="Root Scene" parent="." instance=ExtResource("6_7kk8f")]
-transform = Transform3D(0.0498375, -0.656189, 0.752949, 0.419775, 0.697828, 0.580366, -0.906259, 0.287146, 0.31023, -1.3667, 0, -3.28357)
 
 [editable path="SubViewportContainer/SubViewport/level/nicolas"]

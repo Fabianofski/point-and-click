@@ -19,6 +19,5 @@ flip_faces = true
 size = Vector2(2, 2)
 
 [node name="PostProcessing" type="MeshInstance3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("QuadMesh_cgpbj")
 skeleton = NodePath("../../..")
