@@ -1,14 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://bpt38qtfed741"]
+[gd_scene load_steps=9 format=3 uid="uid://bpt38qtfed741"]
 
 [ext_resource type="MeshLibrary" uid="uid://cshlxqdyxkfl2" path="res://scenes/common/gridmap/gridmap.tres" id="1_dd0lh"]
 [ext_resource type="PackedScene" uid="uid://yfov34a37w28" path="res://entities/player/player.tscn" id="2_bfxgj"]
-[ext_resource type="PackedScene" uid="uid://b1c7anxbg7hk4" path="res://scenes/common/shader/post_processing.tscn" id="3_dywbp"]
+[ext_resource type="Script" uid="uid://bfu3f57i4bh3s" path="res://common/scripts/interactable.gd" id="3_bfxgj"]
+[ext_resource type="PackedScene" uid="uid://b1c7anxbg7hk4" path="res://common/shader/post_processing.tscn" id="3_dywbp"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_gowux"]
 vertices = PackedVector3Array(0.650001, 0.45, -1.25, 0.650001, 0.45, -3.75, -1.1, 0.45, -4, -3.6, 0.45, -4, -3.6, 0.45, -1.25, -7.6, 0.45, -0.5, -6.35, 0.45, -0.5, -6.1, 0.45, -4.25, -7.6, 0.45, -5.75, -1.1, 0.45, -5.75)
 polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(3, 0, 4), PackedInt32Array(6, 5, 7), PackedInt32Array(7, 5, 8), PackedInt32Array(2, 3, 9), PackedInt32Array(9, 3, 7), PackedInt32Array(9, 7, 8)]
 geometry_parsed_geometry_type = 0
 agent_radius = 0.2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bfxgj"]
+size = Vector3(0.2, 0.2, 0.2)
+
+[sub_resource type="SphereMesh" id="SphereMesh_dywbp"]
+radius = 0.3
+height = 0.6
 
 [sub_resource type="Environment" id="Environment_iqygu"]
 background_mode = 1
@@ -30,6 +38,7 @@ stretch_shrink = 4
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
 handle_input_locally = false
+physics_object_picking = true
 size = Vector2i(288, 162)
 render_target_update_mode = 4
 
@@ -63,6 +72,18 @@ target = NodePath("../Marker3D")
 [node name="Marker3D" type="Marker3D" parent="SubViewportContainer/SubViewport/level"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4496, 0.708897, -5.17944)
 
+[node name="Area3D" type="Area3D" parent="SubViewportContainer/SubViewport/level"]
+transform = Transform3D(0.813192, 0, 0.581995, 0, 1, 0, -0.581995, 0, 0.813192, -3.27557, 0.344338, -2.91054)
+script = ExtResource("3_bfxgj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/level/Area3D"]
+shape = SubResource("BoxShape3D_bfxgj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/level/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.110591, 0)
+mesh = SubResource("SphereMesh_dywbp")
+skeleton = NodePath("../..")
+
 [node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport"]
 transform = Transform3D(-1, 6.18172e-08, -6.18172e-08, 0, 0.707107, 0.707107, 8.74228e-08, 0.707107, -0.707107, -1.34864, 4.48237, -7.98359)
 environment = SubResource("Environment_iqygu")
@@ -73,3 +94,6 @@ far = 200.0
 [node name="PostProcessing" parent="SubViewportContainer/SubViewport/Camera3D" instance=ExtResource("3_dywbp")]
 transform = Transform3D(0.486448, 0, -0.486448, -0.243224, 0.595775, -0.243224, 0.421276, 0.34397, 0.421276, -0.133085, -1.80905, -4.74297)
 extra_cull_margin = 16384.0
+
+[connection signal="mouse_entered" from="SubViewportContainer/SubViewport/level/Area3D" to="SubViewportContainer/SubViewport/level/Area3D" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="SubViewportContainer/SubViewport/level/Area3D" to="SubViewportContainer/SubViewport/level/Area3D" method="_on_mouse_exited"]
