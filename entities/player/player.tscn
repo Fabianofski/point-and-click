@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://yfov34a37w28"]
+
+[ext_resource type="PackedScene" uid="uid://cxjs67py4hhsb" path="res://entities/player/nicolas.glb" id="1_0xhsu"]
+[ext_resource type="Script" uid="uid://bgcuf6jrcgi7x" path="res://entities/player/character_controller.gd" id="1_08t41"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ujwqk"]
+radius = 0.140503
+height = 0.999772
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+script = ExtResource("1_08t41")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.483, 0)
+shape = SubResource("CapsuleShape3D_ujwqk")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+target_desired_distance = 0.5
+
+[node name="nicolas" parent="." instance=ExtResource("1_0xhsu")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+
+[editable path="nicolas"]
