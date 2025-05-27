@@ -75,6 +75,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4496, 0.708897, -5.17944)
 [node name="Area3D" type="Area3D" parent="SubViewportContainer/SubViewport/level"]
 transform = Transform3D(0.813192, 0, 0.581995, 0, 1, 0, -0.581995, 0, 0.813192, -3.27557, 0.344338, -2.91054)
 script = ExtResource("3_bfxgj")
+timeline = "timeline"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/level/Area3D"]
 shape = SubResource("BoxShape3D_bfxgj")
