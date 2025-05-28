@@ -6,4 +6,4 @@ character: Hello
 	Its evening!!!
 - Hello Sir
 	Wow
-do SignalBus.emit_signal("change_camera_pos", "start")
+do SignalBus.emit_signal("destroy_object", "Capsule")

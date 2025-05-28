@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 SignalBus="*res://common/scripts/signal_bus.gd"
+Inventory="*res://entities/player/inventory.gd"
 
 [dialogic]
 
@@ -55,8 +56,9 @@ text/autopauses={}
 
 [display]
 
-window/stretch/aspect="ignore"
-window/stretch/scale_mode="integer"
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/stretch/mode="viewport"
 
 [editor_plugins]
 

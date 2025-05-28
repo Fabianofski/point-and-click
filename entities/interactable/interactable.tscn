@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://c885j2gv0cn6v"]
+
+[ext_resource type="Script" uid="uid://bfu3f57i4bh3s" path="res://entities/interactable/interactable.gd" id="1_ejncd"]
+
+[node name="Interactable" type="Area3D" groups=["snap"]]
+transform = Transform3D(-0.791904, 0, 0.610642, 0, 1, 0, -0.610642, 0, -0.791904, 0, 0, 0)
+script = ExtResource("1_ejncd")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
