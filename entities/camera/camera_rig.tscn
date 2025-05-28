@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://c78qanpdkokhy"]
+
+[ext_resource type="Script" uid="uid://crl2u3o0u8v37" path="res://entities/camera/camera_movement.gd" id="1_ohlsw"]
+[ext_resource type="Script" uid="uid://uvi6iap5o1j0" path="res://entities/camera/camera_3d_texel_snapped3.gd" id="2_a08l8"]
+[ext_resource type="PackedScene" uid="uid://b1c7anxbg7hk4" path="res://common/shader/post_processing.tscn" id="3_y0wti"]
+
+[sub_resource type="Environment" id="Environment_iqygu"]
+background_mode = 1
+background_color = Color(0.11, 0.085195, 0.0737, 1)
+ambient_light_color = Color(0, 0, 0.682353, 1)
+ambient_light_energy = 3.52
+
+[node name="CameraRig" type="Node3D" node_paths=PackedStringArray("camera_positions")]
+transform = Transform3D(-1, 1.0677e-07, -1.0677e-07, 0, 0.707107, 0.707107, 1.50996e-07, 0.707107, -0.707107, 0, 0, 0)
+script = ExtResource("1_ohlsw")
+camera_positions = {
+"side": null,
+"start": null
+}
+
+[node name="Camera3D" type="Camera3D" parent="."]
+environment = SubResource("Environment_iqygu")
+projection = 1
+size = 6.0
+far = 200.0
+script = ExtResource("2_a08l8")
+
+[node name="PostProcessing" parent="Camera3D" instance=ExtResource("3_y0wti")]
+transform = Transform3D(0.486448, 0, -0.486448, -0.243224, 0.595775, -0.243224, 0.421276, 0.34397, 0.421276, -0.133085, -1.80905, -4.74297)
+extra_cull_margin = 16384.0
+skeleton = NodePath("../../../..")

@@ -1,9 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://bpt38qtfed741"]
+[gd_scene load_steps=16 format=3 uid="uid://bpt38qtfed741"]
 
 [ext_resource type="MeshLibrary" uid="uid://cshlxqdyxkfl2" path="res://scenes/common/gridmap/gridmap.tres" id="1_dd0lh"]
 [ext_resource type="PackedScene" uid="uid://yfov34a37w28" path="res://entities/player/player.tscn" id="2_bfxgj"]
 [ext_resource type="Script" uid="uid://bfu3f57i4bh3s" path="res://common/scripts/interactable.gd" id="3_bfxgj"]
 [ext_resource type="PackedScene" uid="uid://b1c7anxbg7hk4" path="res://common/shader/post_processing.tscn" id="3_dywbp"]
+[ext_resource type="Script" uid="uid://bk3032cvmxwr0" path="res://common/scripts/on_click_action.gd" id="4_dywbp"]
+[ext_resource type="Script" uid="uid://uvi6iap5o1j0" path="res://entities/camera/camera_3d_texel_snapped3.gd" id="5_1seuy"]
+[ext_resource type="Script" uid="uid://crl2u3o0u8v37" path="res://entities/camera/camera_movement.gd" id="5_2r1tl"]
+[ext_resource type="PackedScene" uid="uid://c20c27qyd0qt3" path="res://entities/camera/camera_target.tscn" id="8_8a7m2"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_gowux"]
 vertices = PackedVector3Array(0.650001, 0.45, -1.25, 0.650001, 0.45, -3.75, -1.1, 0.45, -4, -3.6, 0.45, -4, -3.6, 0.45, -1.25, -7.6, 0.45, -0.5, -6.35, 0.45, -0.5, -6.1, 0.45, -4.25, -7.6, 0.45, -5.75, -1.1, 0.45, -5.75)
@@ -11,12 +15,32 @@ polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Arr
 geometry_parsed_geometry_type = 0
 agent_radius = 0.2
 
+[sub_resource type="Resource" id="Resource_2r1tl"]
+script = ExtResource("4_dywbp")
+click_event = 1
+signal_name = "change_camera_pos"
+signal_args = ["start"]
+metadata/_custom_type_script = "uid://bk3032cvmxwr0"
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_bfxgj"]
 size = Vector3(0.2, 0.2, 0.2)
 
 [sub_resource type="SphereMesh" id="SphereMesh_dywbp"]
 radius = 0.3
 height = 0.6
+
+[sub_resource type="Resource" id="Resource_dywbp"]
+script = ExtResource("4_dywbp")
+click_event = 1
+signal_name = "change_camera_pos"
+signal_args = ["side"]
+metadata/_custom_type_script = "uid://bk3032cvmxwr0"
+
+[sub_resource type="Resource" id="Resource_8a7m2"]
+script = ExtResource("4_dywbp")
+click_event = 0
+timeline = "timeline"
+metadata/_custom_type_script = "uid://bk3032cvmxwr0"
 
 [sub_resource type="Environment" id="Environment_iqygu"]
 background_mode = 1
@@ -65,17 +89,29 @@ transform = Transform3D(-0.898198, 0.439589, 0.00148925, 0.198581, 0.402727, 0.8
 light_energy = 0.436
 shadow_enabled = true
 
-[node name="Player" parent="SubViewportContainer/SubViewport/level" node_paths=PackedStringArray("target") instance=ExtResource("2_bfxgj")]
+[node name="Player" parent="SubViewportContainer/SubViewport/level" node_paths=PackedStringArray("target") groups=["snap"] instance=ExtResource("2_bfxgj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.01405, 0.0669539, -4.91875)
 target = NodePath("../Marker3D")
 
 [node name="Marker3D" type="Marker3D" parent="SubViewportContainer/SubViewport/level"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4496, 0.708897, -5.17944)
 
+[node name="Area3D2" type="Area3D" parent="SubViewportContainer/SubViewport/level"]
+transform = Transform3D(0.322563, 0, 0.946547, 0, 1, 0, -0.946547, 0, 0.322563, -6.97151, 0.293903, -2.92352)
+script = ExtResource("3_bfxgj")
+on_click_actions = Array[ExtResource("4_dywbp")]([SubResource("Resource_2r1tl")])
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/level/Area3D2"]
+shape = SubResource("BoxShape3D_bfxgj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/level/Area3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.110591, 0)
+mesh = SubResource("SphereMesh_dywbp")
+
 [node name="Area3D" type="Area3D" parent="SubViewportContainer/SubViewport/level"]
 transform = Transform3D(0.813192, 0, 0.581995, 0, 1, 0, -0.581995, 0, 0.813192, -3.27557, 0.344338, -2.91054)
 script = ExtResource("3_bfxgj")
-timeline = "timeline"
+on_click_actions = Array[ExtResource("4_dywbp")]([SubResource("Resource_dywbp"), SubResource("Resource_8a7m2")])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/level/Area3D"]
 shape = SubResource("BoxShape3D_bfxgj")
@@ -85,16 +121,35 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.110591, 0)
 mesh = SubResource("SphereMesh_dywbp")
 skeleton = NodePath("../..")
 
-[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport"]
-transform = Transform3D(-1, 6.18172e-08, -6.18172e-08, 0, 0.707107, 0.707107, 8.74228e-08, 0.707107, -0.707107, -1.34864, 4.48237, -7.98359)
+[node name="CameraRig" type="Node3D" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("camera_positions")]
+transform = Transform3D(-1, 1.0677e-07, -1.0677e-07, 0, 0.707107, 0.707107, 1.50996e-07, 0.707107, -0.707107, -1.4, 4.5, -8)
+script = ExtResource("5_2r1tl")
+camera_positions = {
+"side": NodePath("../CameraPositions/CameraTarget2"),
+"start": NodePath("../CameraPositions/CameraTarget1")
+}
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport/CameraRig"]
 environment = SubResource("Environment_iqygu")
 projection = 1
-size = 6.045
+size = 6.0
 far = 200.0
+script = ExtResource("5_1seuy")
 
-[node name="PostProcessing" parent="SubViewportContainer/SubViewport/Camera3D" instance=ExtResource("3_dywbp")]
+[node name="PostProcessing" parent="SubViewportContainer/SubViewport/CameraRig/Camera3D" instance=ExtResource("3_dywbp")]
 transform = Transform3D(0.486448, 0, -0.486448, -0.243224, 0.595775, -0.243224, 0.421276, 0.34397, 0.421276, -0.133085, -1.80905, -4.74297)
 extra_cull_margin = 16384.0
+skeleton = NodePath("../../../..")
 
+[node name="CameraPositions" type="Node3D" parent="SubViewportContainer/SubViewport"]
+
+[node name="CameraTarget1" parent="SubViewportContainer/SubViewport/CameraPositions" instance=ExtResource("8_8a7m2")]
+transform = Transform3D(-1, 1.0677e-07, -1.0677e-07, 0, 0.707107, 0.707107, 1.50996e-07, 0.707107, -0.707107, -1.4, 4.5, -8)
+
+[node name="CameraTarget2" parent="SubViewportContainer/SubViewport/CameraPositions" instance=ExtResource("8_8a7m2")]
+transform = Transform3D(-4.37114e-08, 0.707107, -0.707107, 0, 0.707107, 0.707107, 1, 3.09086e-08, -3.09086e-08, -7.5, 4.482, -4.984)
+
+[connection signal="mouse_entered" from="SubViewportContainer/SubViewport/level/Area3D2" to="SubViewportContainer/SubViewport/level/Area3D2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="SubViewportContainer/SubViewport/level/Area3D2" to="SubViewportContainer/SubViewport/level/Area3D2" method="_on_mouse_exited"]
 [connection signal="mouse_entered" from="SubViewportContainer/SubViewport/level/Area3D" to="SubViewportContainer/SubViewport/level/Area3D" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="SubViewportContainer/SubViewport/level/Area3D" to="SubViewportContainer/SubViewport/level/Area3D" method="_on_mouse_exited"]

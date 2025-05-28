@@ -1,4 +1,3 @@
 extends Node
-class_name SignalBus 
 
-signal test_signal()
+signal change_camera_pos(pos_id)

@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
+SignalBus="*res://common/scripts/signal_bus.gd"
 
 [dialogic]
 
@@ -28,8 +29,8 @@ directories/dtl_directory={
 "timeline": "res://scenes/levels/timeline.dtl"
 }
 variables={}
-layout/style_list=[]
-layout/default_style="Default"
+layout/style_list=["res://scenes/levels/dialog.tres"]
+layout/default_style="res://scenes/levels/dialog.tres"
 glossary/default_case_sensitive=true
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.01
@@ -60,6 +61,10 @@ window/stretch/scale_mode="integer"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
+
+[global_group]
+
+snap="Snap objects to pixel grid"
 
 [input]
 
