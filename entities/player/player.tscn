@@ -15,7 +15,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.91104, 0)
 shape = SubResource("CapsuleShape3D_ujwqk")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
-target_desired_distance = 0.5
+target_desired_distance = 0.1
 
 [node name="nicolas" parent="." instance=ExtResource("1_0xhsu")]
 transform = Transform3D(0.36, 0, 0, 0, 0.36, 0, 0, 0, 0.36, 0, 0, 0)

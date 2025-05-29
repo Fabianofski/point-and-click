@@ -30,7 +30,7 @@ func _unhandled_input(event):
 			nav.target_position = result.position
 
 func _physics_process(delta):
-	if not nav.is_target_reached():
+	if not nav.is_navigation_finished():
 		anim_player.play("walk")
 		var direction = nav.get_next_path_position() - global_position
 		direction = direction.normalized()
