@@ -5,19 +5,19 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ujwqk"]
 radius = 0.140503
-height = 0.999772
+height = 1.8
 
 [node name="CharacterBody3D" type="CharacterBody3D"]
 script = ExtResource("1_08t41")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.483, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.91104, 0)
 shape = SubResource("CapsuleShape3D_ujwqk")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 target_desired_distance = 0.5
 
 [node name="nicolas" parent="." instance=ExtResource("1_0xhsu")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+transform = Transform3D(0.36, 0, 0, 0, 0.36, 0, 0, 0, 0.36, 0, 0, 0)
 
 [editable path="nicolas"]
