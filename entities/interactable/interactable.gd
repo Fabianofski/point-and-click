@@ -1,24 +1,24 @@
 @tool
 extends Area3D
 
-@onready var mesh: MeshInstance3D = $MeshInstance3D
+@onready var mesh: MeshInstance3D = null
 var outline_mat = load("res://common/shader/outline.tres")
 var mouse_on_entity: bool = false
 
 @export var object_id: String
 @export var on_click_action: OnClickAction
 
-func _ready() -> void:
+func _ready():
 	SignalBus.connect("destroy_object", destroy)
+	
+	for child in get_children():
+		if child is MeshInstance3D:
+			mesh = child
+			break
 	
 func destroy(id: String) -> void: 
 	if id == object_id: 
 		self.queue_free()
-
-func _get_configuration_warnings():
-	if get_node_or_null("MeshInstance3D") == null:
-		return ["Interactable requires a MeshInstance3D child node named 'MeshInstance3D'!"]
-	return []
 
 func _unhandled_input(event):
 	var left_click = event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed

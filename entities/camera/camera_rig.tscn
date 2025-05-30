@@ -10,13 +10,9 @@ background_color = Color(0.11, 0.085195, 0.0737, 1)
 ambient_light_color = Color(0, 0, 0.682353, 1)
 ambient_light_energy = 3.52
 
-[node name="CameraRig" type="Node3D" node_paths=PackedStringArray("camera_positions")]
+[node name="CameraRig" type="Node3D"]
 transform = Transform3D(-1, 1.0677e-07, -1.0677e-07, 0, 0.707107, 0.707107, 1.50996e-07, 0.707107, -0.707107, 0, 0, 0)
 script = ExtResource("1_ohlsw")
-camera_positions = {
-"side": null,
-"start": null
-}
 
 [node name="Camera3D" type="Camera3D" parent="."]
 environment = SubResource("Environment_iqygu")

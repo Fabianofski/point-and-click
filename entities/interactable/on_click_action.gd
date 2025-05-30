@@ -78,7 +78,7 @@ func trigger():
 			args.append_array(signal_args)
 			SignalBus.callv("emit_signal", args)
 		ClickEvent.PickUpItem: 
-			SignalBus.emit_signal("pick_up_item", item_id)
+			Inventory.pick_up_item(item_id)
 		ClickEvent.ChangeCamera: 
 			SignalBus.emit_signal("change_camera_pos", cam_pos)
 		ClickEvent.DestroyObject: 

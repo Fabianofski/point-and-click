@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://3wndc4t7qphv"]
+
+[ext_resource type="Script" uid="uid://cfpgcq43n3efe" path="res://scenes/ui/inventory/inventory_display.gd" id="1_3bwaq"]
+
+[node name="Inventory" type="PanelContainer" node_paths=PackedStringArray("item_container")]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -125.0
+offset_right = 125.0
+offset_bottom = 64.0
+grow_horizontal = 2
+script = ExtResource("1_3bwaq")
+item_container = NodePath("Items")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 2
+color = Color(0.19, 0.19, 0.19, 0.415686)
+
+[node name="Items" type="GridContainer" parent="."]
+layout_direction = 2
+layout_mode = 2
+columns = 6

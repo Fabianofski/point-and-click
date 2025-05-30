@@ -1,6 +1,6 @@
 extends Node
 
-@export var camera_positions: Dictionary[String, Marker3D] = {}
+@export var camera_positions: Node3D
 @export var index: int
 @onready var camera : Camera3D = $Camera3D
 
@@ -9,7 +9,7 @@ func _ready() -> void:
 
 func change_camera_pos(pos_id: String):
 	print("Change Camera Target to %s" % pos_id)
-	var target = camera_positions[pos_id]
+	var target = camera_positions.get_node(pos_id)
 	if target == null: 
 		print("Target %s not found" % pos_id)
 		return

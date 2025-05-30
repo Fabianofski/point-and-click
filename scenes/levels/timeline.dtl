@@ -6,4 +6,6 @@ character: Hello
 	Its evening!!!
 - Hello Sir
 	Wow
-do SignalBus.emit_signal("destroy_object", "Capsule")
+- Give me the ball | [if Inventory.has_item("ball")]
+	do Inventory.use_item("ball")
+	Thanks for the Ball

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmpwgiuly00tu"]
+
+[ext_resource type="Texture2D" uid="uid://c7cugsysenhks" path="res://entities/player/material/nicolas_eye.png" id="1_4cwhy"]
+
+[node name="Button" type="Button"]
+custom_minimum_size = Vector2(16, 16)
+offset_right = 32.0
+offset_bottom = 32.0
+icon = ExtResource("1_4cwhy")
+clip_text = true
+expand_icon = true

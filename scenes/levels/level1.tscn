@@ -1,7 +1,7 @@
 [gd_scene load_steps=26 format=4 uid="uid://bpt38qtfed741"]
 
 [ext_resource type="MeshLibrary" uid="uid://cshlxqdyxkfl2" path="res://scenes/common/gridmap/gridmap.tres" id="1_dd0lh"]
-[ext_resource type="Script" uid="uid://cfpgcq43n3efe" path="res://scenes/ui/inventory/inventory_display.gd" id="1_plydf"]
+[ext_resource type="PackedScene" uid="uid://3wndc4t7qphv" path="res://scenes/ui/inventory/inventory.tscn" id="1_plydf"]
 [ext_resource type="PackedScene" uid="uid://yfov34a37w28" path="res://entities/player/player.tscn" id="2_bfxgj"]
 [ext_resource type="PackedScene" uid="uid://b1c7anxbg7hk4" path="res://common/shader/post_processing.tscn" id="3_dywbp"]
 [ext_resource type="PackedScene" uid="uid://c885j2gv0cn6v" path="res://entities/interactable/interactable.tscn" id="4_8a7m2"]
@@ -11,16 +11,12 @@
 [ext_resource type="PackedScene" uid="uid://c20c27qyd0qt3" path="res://entities/camera/camera_target.tscn" id="8_8a7m2"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_plydf"]
-load_path = "res://.godot/imported/prison_wall_bed_0.png-c9e3f2a14273ef28ef0f4e2c0c15d8dc.s3tc.ctex"
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5ntmo"]
-load_path = "res://.godot/imported/prison_wall_bed_2.jpg-cc99609650e62cdbe6e1bb60a12f8f7a.s3tc.ctex"
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_nkeig"]
-load_path = "res://.godot/imported/prison_wall_bed_1.png-e989079143f702f6257b07997a98b6b9.s3tc.ctex"
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_nfihu"]
-load_path = "res://.godot/imported/prison_wall_bed_3.png-3954bddd2fa0d527e8808b1b8a64fbef.s3tc.ctex"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dbixo"]
 resource_name = "DefaultMaterial"
@@ -136,22 +132,7 @@ physics_object_picking = true
 size = Vector2i(480, 270)
 render_target_update_mode = 4
 
-[node name="MarginContainer" type="MarginContainer" parent="SubViewportContainer/SubViewport"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -230.0
-offset_bottom = -129.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Node3D" type="Node3D" parent="SubViewportContainer/SubViewport/MarginContainer"]
-script = ExtResource("1_plydf")
-
-[node name="Label" type="Label" parent="SubViewportContainer/SubViewport/MarginContainer/Node3D"]
-offset_top = 96.0
-offset_right = 384.0
-offset_bottom = 119.0
+[node name="Inventory" parent="SubViewportContainer/SubViewport" instance=ExtResource("1_plydf")]
 
 [node name="level" type="Node3D" parent="SubViewportContainer/SubViewport"]
 
@@ -244,10 +225,7 @@ mesh = SubResource("CapsuleMesh_8a7m2")
 [node name="CameraRig" type="Node3D" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("camera_positions")]
 transform = Transform3D(-4.37114e-08, -0.707107, 0.707107, 0, 0.707107, 0.707107, -1, 3.09086e-08, -3.09086e-08, -3, 6, -1.25)
 script = ExtResource("5_2r1tl")
-camera_positions = {
-"side": NodePath("../CameraPositions/CameraTarget2"),
-"start": NodePath("../CameraPositions/CameraTarget1")
-}
+camera_positions = NodePath("../CameraPositions")
 
 [node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport/CameraRig"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -264,10 +242,10 @@ skeleton = NodePath("../../../..")
 
 [node name="CameraPositions" type="Node3D" parent="SubViewportContainer/SubViewport"]
 
-[node name="CameraTarget1" parent="SubViewportContainer/SubViewport/CameraPositions" instance=ExtResource("8_8a7m2")]
+[node name="start" parent="SubViewportContainer/SubViewport/CameraPositions" instance=ExtResource("8_8a7m2")]
 transform = Transform3D(-4.37114e-08, -0.707107, 0.707107, 0, 0.707107, 0.707107, -1, 3.09086e-08, -3.09086e-08, -3, 6, -1.25)
 orthographic_size = 12.0
 
-[node name="CameraTarget2" parent="SubViewportContainer/SubViewport/CameraPositions" instance=ExtResource("8_8a7m2")]
+[node name="side" parent="SubViewportContainer/SubViewport/CameraPositions" instance=ExtResource("8_8a7m2")]
 transform = Transform3D(-4.37114e-08, -0.707107, 0.707107, 0, 0.707107, 0.707107, -1, 3.09086e-08, -3.09086e-08, 11.7192, 12.8885, -1.25)
 orthographic_size = 20.0
