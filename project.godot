@@ -24,14 +24,15 @@ Inventory="*res://entities/player/inventory.gd"
 [dialogic]
 
 directories/dch_directory={
-"character": "res://scenes/levels/nicolas.dch"
+"character": "res://scenes/levels/nicolas.dch",
+"temp-character": "res://scenes/levels/temp-character.dch"
 }
 directories/dtl_directory={
 "timeline": "res://scenes/levels/timeline.dtl"
 }
 variables={}
-layout/style_list=["res://scenes/levels/dialog.tres"]
-layout/default_style="res://scenes/levels/dialog.tres"
+layout/style_list=["res://scenes/common/dialogic/styles/generic.tres", "res://scenes/common/dialogic/styles/nicolas_style.tres", "res://scenes/common/dialogic/styles/guard_style.tres"]
+layout/default_style="res://scenes/common/dialogic/styles/generic.tres"
 glossary/default_case_sensitive=true
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.01

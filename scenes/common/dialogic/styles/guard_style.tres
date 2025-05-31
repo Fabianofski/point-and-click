@@ -1,0 +1,62 @@
+[gd_resource type="Resource" script_class="DialogicStyle" load_steps=12 format=3 uid="uid://crn3pyv4seeg3"]
+
+[ext_resource type="Resource" uid="uid://hifweohwkyf4" path="res://scenes/common/dialogic/styles/nicolas_style.tres" id="1_ktavw"]
+[ext_resource type="Script" uid="uid://cnvvfudrwqexj" path="res://addons/dialogic/Resources/dialogic_style_layer.gd" id="2_gv0bl"]
+[ext_resource type="Script" uid="uid://cgvc4uh3quo1j" path="res://addons/dialogic/Resources/dialogic_style.gd" id="3_n5tol"]
+
+[sub_resource type="Resource" id="Resource_ufpy0"]
+script = ExtResource("2_gv0bl")
+overrides = {}
+
+[sub_resource type="Resource" id="Resource_c1g3m"]
+script = ExtResource("2_gv0bl")
+overrides = {}
+
+[sub_resource type="Resource" id="Resource_w4y2s"]
+script = ExtResource("2_gv0bl")
+overrides = {}
+
+[sub_resource type="Resource" id="Resource_l32ir"]
+script = ExtResource("2_gv0bl")
+overrides = {}
+
+[sub_resource type="Resource" id="Resource_7kc3c"]
+script = ExtResource("2_gv0bl")
+overrides = {
+"box_modulate_custom_color": "Color(0, 0.136397, 0.329412, 1)",
+"custom_bold_font": "\"CreteRound-Regular.ttf\"",
+"custom_bold_italic_font": "\"CreteRound-Regular.ttf\"",
+"custom_italic_font": "\"CreteRound-Regular.ttf\"",
+"custom_normal_font": "\"res://scenes/ui/assets/fonts/CreteRound-Regular.ttf\""
+}
+
+[sub_resource type="Resource" id="Resource_3b22o"]
+script = ExtResource("2_gv0bl")
+overrides = {}
+
+[sub_resource type="Resource" id="Resource_05fpt"]
+script = ExtResource("2_gv0bl")
+overrides = {}
+
+[sub_resource type="Resource" id="Resource_6rrhc"]
+script = ExtResource("2_gv0bl")
+overrides = {}
+
+[resource]
+script = ExtResource("3_n5tol")
+name = "guard_style"
+inherits = ExtResource("1_ktavw")
+layer_list = Array[String](["11", "12", "14", "10", "15", "16", "17"])
+layer_info = {
+"": SubResource("Resource_ufpy0"),
+"10": SubResource("Resource_7kc3c"),
+"11": SubResource("Resource_c1g3m"),
+"12": SubResource("Resource_w4y2s"),
+"14": SubResource("Resource_l32ir"),
+"15": SubResource("Resource_3b22o"),
+"16": SubResource("Resource_05fpt"),
+"17": SubResource("Resource_6rrhc")
+}
+base_overrides = {}
+layers = Array[ExtResource("2_gv0bl")]([])
+metadata/_latest_layer = "10"

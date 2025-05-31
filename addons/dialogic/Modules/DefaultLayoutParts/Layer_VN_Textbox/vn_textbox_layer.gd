@@ -158,8 +158,12 @@ func _apply_box_settings() -> void:
 		dialog_text_panel.self_modulate = box_color_custom
 
 	var sizer: Control = %Sizer
-	sizer.size = box_size
+	sizer.size = box_size+Vector2(0, 40)
 	sizer.position = box_size * Vector2(-0.5, -1)+Vector2(0, -box_margin_bottom)
+	
+	var dialog_text_holder: PanelContainer = %TextHolder
+	#dialog_text_holder.self_modulate.a = 0
+	dialog_text_holder.size = sizer.size
 
 
 ## Applies box animations settings to the scene.
@@ -202,7 +206,7 @@ func _apply_name_label_settings() -> void:
 	else:
 		name_label_panel.self_modulate = name_label_box_modulate
 	var dialog_text_panel: PanelContainer = %DialogTextPanel
-	name_label_panel.position = name_label_box_offset+Vector2(0, -40)
+	name_label_panel.position = name_label_box_offset
 	name_label_panel.position -= Vector2(
 		dialog_text_panel.get_theme_stylebox(&'panel', &'PanelContainer').content_margin_left,
 		dialog_text_panel.get_theme_stylebox(&'panel', &'PanelContainer').content_margin_top)

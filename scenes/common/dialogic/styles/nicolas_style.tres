@@ -1,0 +1,62 @@
+[gd_resource type="Resource" script_class="DialogicStyle" load_steps=12 format=3 uid="uid://hifweohwkyf4"]
+
+[ext_resource type="Resource" uid="uid://brt5t1p21oy0f" path="res://scenes/common/dialogic/styles/generic.tres" id="1_c0lpl"]
+[ext_resource type="Script" uid="uid://cnvvfudrwqexj" path="res://addons/dialogic/Resources/dialogic_style_layer.gd" id="2_tvx8e"]
+[ext_resource type="Script" uid="uid://cgvc4uh3quo1j" path="res://addons/dialogic/Resources/dialogic_style.gd" id="3_33wmn"]
+
+[sub_resource type="Resource" id="Resource_2ae6h"]
+script = ExtResource("2_tvx8e")
+overrides = {}
+
+[sub_resource type="Resource" id="Resource_hdist"]
+script = ExtResource("2_tvx8e")
+overrides = {}
+
+[sub_resource type="Resource" id="Resource_dxkba"]
+script = ExtResource("2_tvx8e")
+overrides = {}
+
+[sub_resource type="Resource" id="Resource_q70f7"]
+script = ExtResource("2_tvx8e")
+overrides = {}
+
+[sub_resource type="Resource" id="Resource_2yd2m"]
+script = ExtResource("2_tvx8e")
+overrides = {
+"box_modulate_custom_color": "Color(0.329412, 0.0705882, 0, 1)",
+"custom_bold_font": "\"KomikaText-Regular.ttf\"",
+"custom_bold_italic_font": "\"KomikaText-Regular.ttf\"",
+"custom_italic_font": "\"KomikaText-Regular.ttf\"",
+"custom_normal_font": "\"res://scenes/ui/assets/fonts/KomikaText-Regular.ttf\""
+}
+
+[sub_resource type="Resource" id="Resource_b1y58"]
+script = ExtResource("2_tvx8e")
+overrides = {}
+
+[sub_resource type="Resource" id="Resource_oyept"]
+script = ExtResource("2_tvx8e")
+overrides = {}
+
+[sub_resource type="Resource" id="Resource_8oiry"]
+script = ExtResource("2_tvx8e")
+overrides = {}
+
+[resource]
+script = ExtResource("3_33wmn")
+name = "nicolas_style"
+inherits = ExtResource("1_c0lpl")
+layer_list = Array[String](["11", "12", "14", "10", "15", "16", "17"])
+layer_info = {
+"": SubResource("Resource_2ae6h"),
+"10": SubResource("Resource_2yd2m"),
+"11": SubResource("Resource_hdist"),
+"12": SubResource("Resource_dxkba"),
+"14": SubResource("Resource_q70f7"),
+"15": SubResource("Resource_b1y58"),
+"16": SubResource("Resource_oyept"),
+"17": SubResource("Resource_8oiry")
+}
+base_overrides = {}
+layers = Array[ExtResource("2_tvx8e")]([])
+metadata/_latest_layer = "11"

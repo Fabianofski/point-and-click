@@ -34,7 +34,8 @@ overrides = {}
 script = ExtResource("1_y55q2")
 scene = ExtResource("5_ibg4h")
 overrides = {
-"box_animation_new_text": "1"
+"box_animation_new_text": "1",
+"box_panel": "\"vn_textbox_default_panel.tres\""
 }
 
 [sub_resource type="Resource" id="Resource_70p0o"]
@@ -74,4 +75,4 @@ layer_info = {
 }
 base_overrides = {}
 layers = Array[ExtResource("1_y55q2")]([])
-metadata/_latest_layer = "17"
+metadata/_latest_layer = "13"
