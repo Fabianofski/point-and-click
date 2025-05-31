@@ -8,12 +8,40 @@
 "sound_moods": {},
 "style": "nicolas_style"
 },
-&"default_portrait": "",
+&"default_portrait": "idle_nicolas",
 &"description": "",
 &"display_name": "Nicolas Ne'er-Doweller",
 &"mirror": false,
 &"nicknames": ["Nicolas"],
 &"offset": Vector2(0, 0),
-&"portraits": {},
+&"portraits": {
+"bro_nicolas": {
+"export_overrides": {
+"image": "\"res://scenes/common/dialogic/portraits/nicolas/bro_nicolas.png\""
+},
+"mirror": false,
+"offset": Vector2(0, -50),
+"scale": 1,
+"scene": ""
+},
+"idle_nicolas": {
+"export_overrides": {
+"image": "\"res://scenes/common/dialogic/portraits/nicolas/idle_nicolas.png\""
+},
+"mirror": false,
+"offset": Vector2(0, -50),
+"scale": 1,
+"scene": ""
+},
+"surprised_nicolas": {
+"export_overrides": {
+"image": "\"res://scenes/common/dialogic/portraits/nicolas/surprised_nicolas.png\""
+},
+"mirror": false,
+"offset": Vector2(0, -50),
+"scale": 1,
+"scene": ""
+}
+},
 &"scale": 1.0
 }

@@ -16,10 +16,34 @@ script = ExtResource("1_ovno8")
 scene = ExtResource("1_4qlq3")
 overrides = {}
 
+[sub_resource type="Resource" id="Resource_j468e"]
+script = ExtResource("1_ovno8")
+scene = ExtResource("9_ovno8")
+overrides = {
+"box_distance": "35.0",
+"box_modulate_custom_color": "Color(0.329412, 0.329412, 0.329412, 0.768627)",
+"box_modulate_global_color": "false",
+"box_panel": "\"res://scenes/common/dialogic/styles/layouts/custom_stylebox.tres\"",
+"box_size": "Vector2(800, 175)",
+"custom_bold_font": "\"CreteRound-Regular.ttf\"",
+"custom_bold_italic_font": "\"CreteRound-Regular.ttf\"",
+"custom_italic_font": "\"CreteRound-Regular.ttf\"",
+"custom_normal_font": "\"res://scenes/ui/assets/fonts/CreteRound-Regular.ttf\"",
+"name_label_color_mode": "1",
+"name_label_custom_size": "28.0",
+"name_label_customfont": "\"res://scenes/ui/assets/fonts/DenkOne-Regular.ttf\"",
+"name_label_hide_when_no_character": "true",
+"text_custom_size": "32.0",
+"text_use_global_size": "false",
+"use_global_fonts": "false"
+}
+
 [sub_resource type="Resource" id="Resource_0lcdn"]
 script = ExtResource("1_ovno8")
 scene = ExtResource("3_3e84l")
-overrides = {}
+overrides = {
+"portrait_size_mode": "2"
+}
 
 [sub_resource type="Resource" id="Resource_2k5o6"]
 script = ExtResource("1_ovno8")
@@ -58,28 +82,6 @@ script = ExtResource("1_ovno8")
 scene = ExtResource("9_xq16b")
 overrides = {}
 
-[sub_resource type="Resource" id="Resource_j468e"]
-script = ExtResource("1_ovno8")
-scene = ExtResource("9_ovno8")
-overrides = {
-"box_distance": "35.0",
-"box_modulate_custom_color": "Color(0.329412, 0.329412, 0.329412, 0.768627)",
-"box_modulate_global_color": "false",
-"box_panel": "\"res://scenes/common/dialogic/styles/layouts/custom_stylebox.tres\"",
-"box_size": "Vector2(800, 175)",
-"custom_bold_font": "\"CreteRound-Regular.ttf\"",
-"custom_bold_italic_font": "\"CreteRound-Regular.ttf\"",
-"custom_italic_font": "\"CreteRound-Regular.ttf\"",
-"custom_normal_font": "\"res://scenes/ui/assets/fonts/CreteRound-Regular.ttf\"",
-"name_label_color_mode": "1",
-"name_label_custom_size": "28.0",
-"name_label_customfont": "\"res://scenes/ui/assets/fonts/DenkOne-Regular.ttf\"",
-"name_label_hide_when_no_character": "true",
-"text_custom_size": "32.0",
-"text_use_global_size": "false",
-"use_global_fonts": "false"
-}
-
 [resource]
 script = ExtResource("10_07xjy")
 name = "generic"
@@ -96,4 +98,4 @@ layer_info = {
 }
 base_overrides = {}
 layers = Array[ExtResource("1_ovno8")]([])
-metadata/_latest_layer = "15"
+metadata/_latest_layer = "11"

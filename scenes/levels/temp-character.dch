@@ -8,12 +8,40 @@
 "sound_moods": {},
 "style": "guard_style"
 },
-&"default_portrait": "",
+&"default_portrait": "idle_placeholder",
 &"description": "Temporary Character",
 &"display_name": "Pilly C. Lynder",
 &"mirror": false,
 &"nicknames": ["Cylinder"],
 &"offset": Vector2(0, 0),
-&"portraits": {},
+&"portraits": {
+"angry_placeholder": {
+"export_overrides": {
+"image": "\"res://scenes/common/dialogic/portraits/placeholder/angry_placeholder.png\""
+},
+"mirror": false,
+"offset": Vector2(0, -50),
+"scale": 1,
+"scene": ""
+},
+"idle_placeholder": {
+"export_overrides": {
+"image": "\"res://scenes/common/dialogic/portraits/placeholder/idle_placeholder.png\""
+},
+"mirror": false,
+"offset": Vector2(0, -50),
+"scale": 1,
+"scene": ""
+},
+"sugoi_placeholder": {
+"export_overrides": {
+"image": "\"res://scenes/common/dialogic/portraits/placeholder/sugoi_placeholder.png\""
+},
+"mirror": false,
+"offset": Vector2(0, -50),
+"scale": 1,
+"scene": ""
+}
+},
 &"scale": 1.0
 }
