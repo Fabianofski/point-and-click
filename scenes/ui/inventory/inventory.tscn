@@ -1,6 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://3wndc4t7qphv"]
+[gd_scene load_steps=8 format=3 uid="uid://3wndc4t7qphv"]
 
 [ext_resource type="Script" uid="uid://cfpgcq43n3efe" path="res://scenes/ui/inventory/inventory_display.gd" id="1_3bwaq"]
+[ext_resource type="StyleBox" uid="uid://oln70hp2v3y3" path="res://scenes/ui/inventory/inventory_stylebox.tres" id="1_lobmi"]
+[ext_resource type="FontFile" uid="uid://dixfglpw87yyg" path="res://scenes/ui/assets/fonts/KomikaText-Regular.ttf" id="2_8ndef"]
+[ext_resource type="StyleBox" uid="uid://cacc3ns4m6tu3" path="res://scenes/common/dialogic/styles/layouts/optn_hover_style.tres" id="4_8ndef"]
+[ext_resource type="StyleBox" uid="uid://qvh2igx426kk" path="res://scenes/common/dialogic/styles/layouts/optn_normal_style.tres" id="5_wi1cf"]
+
+[sub_resource type="Theme" id="Theme_otfgc"]
+default_font = ExtResource("2_8ndef")
+default_font_size = 20
+PanelContainer/styles/panel = ExtResource("1_lobmi")
+
+[sub_resource type="Theme" id="Theme_g1xhy"]
+Button/styles/focus = ExtResource("4_8ndef")
+Button/styles/hover = ExtResource("4_8ndef")
+Button/styles/normal = ExtResource("5_wi1cf")
 
 [node name="Inventory" type="PanelContainer" node_paths=PackedStringArray("item_container")]
 anchors_preset = 5
@@ -10,14 +24,17 @@ offset_left = -125.0
 offset_right = 125.0
 offset_bottom = 64.0
 grow_horizontal = 2
+theme = SubResource("Theme_otfgc")
 script = ExtResource("1_3bwaq")
 item_container = NodePath("Items")
 
 [node name="Background" type="ColorRect" parent="."]
+visible = false
 layout_mode = 2
-color = Color(0.19, 0.19, 0.19, 0.415686)
+color = Color(0, 0, 0, 0.415686)
 
 [node name="Items" type="GridContainer" parent="."]
 layout_direction = 2
 layout_mode = 2
+theme = SubResource("Theme_g1xhy")
 columns = 6
