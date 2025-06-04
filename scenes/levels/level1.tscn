@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://bpt38qtfed741"]
+[gd_scene load_steps=31 format=4 uid="uid://bpt38qtfed741"]
 
 [ext_resource type="MeshLibrary" uid="uid://cshlxqdyxkfl2" path="res://scenes/common/gridmap/gridmap.tres" id="1_dd0lh"]
 [ext_resource type="PackedScene" uid="uid://3wndc4t7qphv" path="res://scenes/ui/inventory/inventory.tscn" id="1_plydf"]
@@ -108,6 +108,35 @@ item_id = "ball"
 next_action = SubResource("Resource_nkeig")
 metadata/_custom_type_script = "uid://bk3032cvmxwr0"
 
+[sub_resource type="Resource" id="Resource_jprdt"]
+script = ExtResource("4_dywbp")
+click_event = 1
+cam_pos = "closeup"
+metadata/_custom_type_script = "uid://bk3032cvmxwr0"
+
+[sub_resource type="Resource" id="Resource_1xax6"]
+script = ExtResource("4_dywbp")
+click_event = 0
+timeline = "tiny_objects"
+metadata/_custom_type_script = "uid://bk3032cvmxwr0"
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_sbmf2"]
+radius = 0.1
+height = 0.5
+
+[sub_resource type="Resource" id="Resource_sbmf2"]
+script = ExtResource("4_dywbp")
+click_event = 4
+object_id = "Tiny"
+metadata/_custom_type_script = "uid://bk3032cvmxwr0"
+
+[sub_resource type="Resource" id="Resource_ps2vj"]
+script = ExtResource("4_dywbp")
+click_event = 2
+item_id = "tiny"
+next_action = SubResource("Resource_sbmf2")
+metadata/_custom_type_script = "uid://bk3032cvmxwr0"
+
 [sub_resource type="Environment" id="Environment_iqygu"]
 background_mode = 1
 background_color = Color(0.11, 0.085195, 0.0737, 1)
@@ -183,6 +212,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4496, 0.708897, -5.17944)
 [node name="Interactable" parent="SubViewportContainer/SubViewport/level" instance=ExtResource("4_8a7m2")]
 transform = Transform3D(-0.791904, 0, 0.610642, 0, 1, 0, -0.610642, 0, -0.791904, -6.38432, 1.03958, 3.37516)
 on_click_action = SubResource("Resource_plydf")
+camera_layer = null
+active = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/level/Interactable"]
 shape = SubResource("SphereShape3D_8a7m2")
@@ -193,6 +224,8 @@ mesh = SubResource("CapsuleMesh_8a7m2")
 [node name="Interactable2" parent="SubViewportContainer/SubViewport/level" instance=ExtResource("4_8a7m2")]
 transform = Transform3D(-0.791904, 0, 0.610642, 0, 1, 0, -0.610642, 0, -0.791904, -6.15369, 1.02355, -6.06394)
 on_click_action = SubResource("Resource_nfihu")
+camera_layer = null
+active = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/level/Interactable2"]
 shape = SubResource("SphereShape3D_8a7m2")
@@ -204,6 +237,8 @@ mesh = SubResource("CapsuleMesh_8a7m2")
 transform = Transform3D(-0.791904, 0, 0.610642, 0, 1, 0, -0.610642, 0, -0.791904, -2.06046, 1.02355, -13.0098)
 object_id = "Capsule"
 on_click_action = SubResource("Resource_5ntmo")
+camera_layer = null
+active = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/level/Interactable3"]
 shape = SubResource("SphereShape3D_8a7m2")
@@ -215,12 +250,52 @@ mesh = SubResource("CapsuleMesh_8a7m2")
 transform = Transform3D(-0.791904, 0, 0.610642, 0, 1, 0, -0.610642, 0, -0.791904, -0.362244, 1.02355, -5.38644)
 object_id = "Ball"
 on_click_action = SubResource("Resource_lgguw")
+camera_layer = null
+active = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/level/Interactable4"]
 shape = SubResource("SphereShape3D_8a7m2")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/level/Interactable4"]
 mesh = SubResource("CapsuleMesh_8a7m2")
+
+[node name="Interactable5" parent="SubViewportContainer/SubViewport/level" instance=ExtResource("4_8a7m2")]
+transform = Transform3D(-0.791904, 0, 0.610642, 0, 1, 0, -0.610642, 0, -0.791904, -11.0806, 1.02355, -1.37943)
+on_click_action = SubResource("Resource_jprdt")
+active = null
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/level/Interactable5"]
+shape = SubResource("SphereShape3D_8a7m2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/level/Interactable5"]
+mesh = SubResource("CapsuleMesh_8a7m2")
+
+[node name="Interactable6" parent="SubViewportContainer/SubViewport/level" instance=ExtResource("4_8a7m2")]
+transform = Transform3D(-0.791904, 0, 0.610642, 0, 1, 0, -0.610642, 0, -0.791904, -10.854, 1.02355, -1.9537)
+on_click_action = SubResource("Resource_1xax6")
+camera_layer = "closeup"
+active = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/level/Interactable6"]
+shape = SubResource("SphereShape3D_8a7m2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/level/Interactable6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.087235, -0.439766, 0.0652487)
+mesh = SubResource("CapsuleMesh_sbmf2")
+
+[node name="Interactable7" parent="SubViewportContainer/SubViewport/level" instance=ExtResource("4_8a7m2")]
+transform = Transform3D(-0.791904, 0, 0.610642, 0, 1, 0, -0.610642, 0, -0.791904, -10.6293, 1.02355, -0.666308)
+object_id = "Tiny"
+on_click_action = SubResource("Resource_ps2vj")
+camera_layer = "closeup"
+active = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/level/Interactable7"]
+shape = SubResource("SphereShape3D_8a7m2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/level/Interactable7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.087235, -0.439766, 0.0652487)
+mesh = SubResource("CapsuleMesh_sbmf2")
 
 [node name="CameraRig" type="Node3D" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("camera_positions")]
 transform = Transform3D(-4.37114e-08, -0.707107, 0.707107, 0, 0.707107, 0.707107, -1, 3.09086e-08, -3.09086e-08, -3, 6, -1.25)
@@ -249,3 +324,7 @@ orthographic_size = 12.0
 [node name="side" parent="SubViewportContainer/SubViewport/CameraPositions" instance=ExtResource("8_8a7m2")]
 transform = Transform3D(-4.37114e-08, -0.707107, 0.707107, 0, 0.707107, 0.707107, -1, 3.09086e-08, -3.09086e-08, 11.7192, 12.8885, -1.25)
 orthographic_size = 20.0
+
+[node name="closeup" parent="SubViewportContainer/SubViewport/CameraPositions" instance=ExtResource("8_8a7m2")]
+transform = Transform3D(-4.37114e-08, -0.707107, 0.707107, 0, 0.707107, 0.707107, -1, 3.09086e-08, -3.09086e-08, 11.719, 23, -1.25)
+orthographic_size = 5.0

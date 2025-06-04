@@ -28,7 +28,8 @@ directories/dch_directory={
 "temp-character": "res://scenes/levels/temp-character.dch"
 }
 directories/dtl_directory={
-"timeline": "res://scenes/levels/timeline.dtl"
+"timeline": "res://scenes/levels/timeline.dtl",
+"tiny_objects": "res://scenes/levels/tiny_objects.dtl"
 }
 variables={}
 layout/style_list=["res://scenes/common/dialogic/styles/generic.tres", "res://scenes/common/dialogic/styles/nicolas_style.tres", "res://scenes/common/dialogic/styles/guard_style.tres"]
