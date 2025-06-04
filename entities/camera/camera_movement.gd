@@ -1,7 +1,6 @@
 extends Node
 
 @export var camera_positions: Node3D
-@export var index: int
 @onready var camera : Camera3D = $Camera3D
 
 func _ready() -> void:
