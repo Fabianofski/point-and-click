@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://bpt38qtfed741"]
+[gd_scene load_steps=32 format=4 uid="uid://bpt38qtfed741"]
 
 [ext_resource type="MeshLibrary" uid="uid://cshlxqdyxkfl2" path="res://scenes/common/gridmap/gridmap.tres" id="1_dd0lh"]
 [ext_resource type="PackedScene" uid="uid://3wndc4t7qphv" path="res://scenes/ui/inventory/inventory.tscn" id="1_plydf"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://uvi6iap5o1j0" path="res://entities/camera/camera_3d_texel_snapped3.gd" id="5_1seuy"]
 [ext_resource type="Script" uid="uid://crl2u3o0u8v37" path="res://entities/camera/camera_movement.gd" id="5_2r1tl"]
 [ext_resource type="PackedScene" uid="uid://c20c27qyd0qt3" path="res://entities/camera/camera_target.tscn" id="8_8a7m2"]
+[ext_resource type="Script" uid="uid://m1hyinroj0es" path="res://common/shader/editor_disable.gd" id="9_5ntmo"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_plydf"]
 
@@ -313,8 +314,10 @@ script = ExtResource("5_1seuy")
 
 [node name="PostProcessing" parent="SubViewportContainer/SubViewport/CameraRig/Camera3D" instance=ExtResource("3_dywbp")]
 transform = Transform3D(0.486448, 0, -0.486448, -0.243224, 0.595775, -0.243224, 0.421276, 0.34397, 0.421276, -0.133085, -1.80905, -4.74297)
+visible = false
 extra_cull_margin = 16384.0
 skeleton = NodePath("../../../..")
+script = ExtResource("9_5ntmo")
 
 [node name="CameraPositions" type="Node3D" parent="SubViewportContainer/SubViewport"]
 
