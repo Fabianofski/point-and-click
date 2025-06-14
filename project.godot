@@ -28,10 +28,16 @@ directories/dch_directory={
 "temp-character": "res://scenes/levels/temp-character.dch"
 }
 directories/dtl_directory={
+"nicolas_guard_outside_cell": "res://scenes/levels/cells/nicolas_guard_outside_cell.dtl",
+"nicolas_toilet": "res://scenes/levels/cells/nicolas_toilet.dtl",
 "timeline": "res://scenes/levels/timeline.dtl",
 "tiny_objects": "res://scenes/levels/tiny_objects.dtl"
 }
-variables={}
+variables={
+"has_talked_to_guard_outside_cell": false,
+"has_toileted_enough": false,
+"has_uwud_to_the_guard": false
+}
 layout/style_list=["res://scenes/common/dialogic/styles/generic.tres", "res://scenes/common/dialogic/styles/nicolas_style.tres", "res://scenes/common/dialogic/styles/guard_style.tres"]
 layout/default_style="res://scenes/common/dialogic/styles/generic.tres"
 glossary/default_case_sensitive=true

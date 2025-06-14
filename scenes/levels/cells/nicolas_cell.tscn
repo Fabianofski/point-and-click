@@ -1,0 +1,204 @@
+[gd_scene load_steps=25 format=3 uid="uid://ck6uvkht7q27c"]
+
+[ext_resource type="PackedScene" uid="uid://3wndc4t7qphv" path="res://scenes/ui/inventory/inventory.tscn" id="1_fqj51"]
+[ext_resource type="MeshLibrary" uid="uid://cshlxqdyxkfl2" path="res://scenes/common/gridmap/gridmap.tres" id="2_nicx2"]
+[ext_resource type="PackedScene" uid="uid://yfov34a37w28" path="res://entities/player/player.tscn" id="3_wwu7l"]
+[ext_resource type="Script" uid="uid://crl2u3o0u8v37" path="res://entities/camera/camera_movement.gd" id="4_6cm17"]
+[ext_resource type="PackedScene" uid="uid://c885j2gv0cn6v" path="res://entities/interactable/interactable.tscn" id="4_wwu7l"]
+[ext_resource type="Script" uid="uid://bk3032cvmxwr0" path="res://entities/interactable/on_click_action.gd" id="5_6cm17"]
+[ext_resource type="Script" uid="uid://uvi6iap5o1j0" path="res://entities/camera/camera_3d_texel_snapped3.gd" id="5_hxbeo"]
+[ext_resource type="PackedScene" uid="uid://b1c7anxbg7hk4" path="res://common/shader/post_processing.tscn" id="6_yo0r2"]
+[ext_resource type="Script" uid="uid://m1hyinroj0es" path="res://common/shader/editor_disable.gd" id="7_2caaa"]
+[ext_resource type="PackedScene" uid="uid://c20c27qyd0qt3" path="res://entities/camera/camera_target.tscn" id="8_f0py0"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_fqj51"]
+vertices = PackedVector3Array(-7.5, 0.75, -7.5, -7.5, 0.75, -5, -3.5, 0.75, -5, -0.5, 0.75, -7.5, -0.5, 0.75, 3.75, 3.5, 0.75, 3.5, 3.5, 0.75, -3.5, -0.5, 0.75, -3.75, -2.5, 0.75, -4.25, -2.5, 0.75, 4.25, -3.5, 0.75, 5, -0.5, 0.75, 7.5, -7.5, 0.75, 5, -7.5, 0.75, 7.5, -7, 0.75, -3.25, -7, 0.75, 3.5, -3.75, 0.75, 3.5, -3.75, 0.75, -3.25)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(5, 4, 6), PackedInt32Array(6, 4, 7), PackedInt32Array(8, 2, 7), PackedInt32Array(7, 2, 3), PackedInt32Array(9, 4, 10), PackedInt32Array(10, 4, 11), PackedInt32Array(12, 10, 13), PackedInt32Array(13, 10, 11), PackedInt32Array(7, 4, 8), PackedInt32Array(8, 4, 9), PackedInt32Array(17, 16, 14), PackedInt32Array(14, 16, 15)]
+
+[sub_resource type="Resource" id="Resource_2caaa"]
+script = ExtResource("5_6cm17")
+click_event = 1
+cam_pos = "start"
+metadata/_custom_type_script = "uid://bk3032cvmxwr0"
+
+[sub_resource type="Resource" id="Resource_yo0r2"]
+script = ExtResource("5_6cm17")
+click_event = 0
+timeline = "nicolas_guard_outside_cell"
+next_action = SubResource("Resource_2caaa")
+metadata/_custom_type_script = "uid://bk3032cvmxwr0"
+
+[sub_resource type="Resource" id="Resource_wwu7l"]
+script = ExtResource("5_6cm17")
+click_event = 1
+cam_pos = "guard"
+next_action = SubResource("Resource_yo0r2")
+metadata/_custom_type_script = "uid://bk3032cvmxwr0"
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_6cm17"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_hxbeo"]
+
+[sub_resource type="Resource" id="Resource_6cm17"]
+script = ExtResource("5_6cm17")
+click_event = 0
+timeline = "nicolas_toilet"
+metadata/_custom_type_script = "uid://bk3032cvmxwr0"
+
+[sub_resource type="Resource" id="Resource_hxbeo"]
+script = ExtResource("5_6cm17")
+click_event = 1
+cam_pos = "start"
+next_action = SubResource("Resource_6cm17")
+metadata/_custom_type_script = "uid://bk3032cvmxwr0"
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_yo0r2"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_2caaa"]
+
+[sub_resource type="Environment" id="Environment_fqj51"]
+background_mode = 1
+background_color = Color(0.11, 0.085195, 0.0737, 1)
+ambient_light_color = Color(0, 0, 0.682353, 1)
+ambient_light_energy = 3.52
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fqj51"]
+sky_top_color = Color(0.41568, 0.606838, 0.830567, 1)
+sky_horizon_color = Color(0.589164, 0.636954, 0.692886, 1)
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0.589164, 0.636954, 0.692886, 1)
+
+[sub_resource type="Sky" id="Sky_nicx2"]
+sky_material = SubResource("ProceduralSkyMaterial_fqj51")
+
+[sub_resource type="Environment" id="Environment_wwu7l"]
+background_mode = 2
+sky = SubResource("Sky_nicx2")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="PixelatedScene" type="Node3D"]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+stretch_shrink = 4
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+physics_object_picking = true
+size = Vector2i(480, 270)
+render_target_update_mode = 4
+
+[node name="Inventory" parent="SubViewportContainer/SubViewport" instance=ExtResource("1_fqj51")]
+
+[node name="level" type="Node3D" parent="SubViewportContainer/SubViewport"]
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="SubViewportContainer/SubViewport/level"]
+transform = Transform3D(1.00136, 0, 0, 0, 1.00136, 0, 0, 0, 1.00136, 0.331736, 0, -1.35285)
+navigation_mesh = SubResource("NavigationMesh_fqj51")
+
+[node name="GridMap" type="GridMap" parent="SubViewportContainer/SubViewport/level/NavigationRegion3D"]
+mesh_library = ExtResource("2_nicx2")
+cell_size = Vector3(4, 4, 4)
+data = {
+"cells": PackedInt32Array(65534, 0, 1, 65535, 0, 1048578, 65534, 65535, 1, 65535, 65535, 1048578, 65534, 65534, 1048577, 65534, 1, 1441793, 65535, 1, 1441792, 65535, 65534, 1441792, 0, 0, 1441792, 0, 65535, 1441792)
+}
+
+[node name="Player" parent="SubViewportContainer/SubViewport/level" node_paths=PackedStringArray("target") groups=["snap"] instance=ExtResource("3_wwu7l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.29116, 1.06695, -2.91875)
+target = NodePath("../SpawnPoint")
+
+[node name="SpawnPoint" type="Marker3D" parent="SubViewportContainer/SubViewport/level"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.40559, 0.708897, -3.01415)
+
+[node name="Objects" type="Node" parent="SubViewportContainer/SubViewport/level"]
+
+[node name="Guard" parent="SubViewportContainer/SubViewport/level/Objects" instance=ExtResource("4_wwu7l")]
+transform = Transform3D(-0.791904, 0, 0.610642, 0, 1, 0, -0.610642, 0, -0.791904, -2.17319, 1.13908, -4.70883)
+object_id = "key_guard"
+on_click_action = SubResource("Resource_wwu7l")
+camera_layer = "all"
+active = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/level/Objects/Guard"]
+shape = SubResource("SphereShape3D_6cm17")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/level/Objects/Guard"]
+mesh = SubResource("CapsuleMesh_hxbeo")
+
+[node name="Toilet" parent="SubViewportContainer/SubViewport/level/Objects" instance=ExtResource("4_wwu7l")]
+transform = Transform3D(-0.791904, 0, 0.610642, 0, 1, 0, -0.610642, 0, -0.791904, -6.67829, 1.26031, 1.7676)
+object_id = "nicolas_toilet"
+on_click_action = SubResource("Resource_hxbeo")
+camera_layer = "all"
+active = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/level/Objects/Toilet"]
+shape = SubResource("SphereShape3D_yo0r2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/level/Objects/Toilet"]
+mesh = SubResource("CapsuleMesh_2caaa")
+
+[node name="CameraRig" type="Node3D" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("camera_positions")]
+transform = Transform3D(-4.37114e-08, -0.707107, 0.707107, 0, 0.707107, 0.707107, -1, 3.09086e-08, -3.09086e-08, -2.18338, 4.20146, -1.35625)
+script = ExtResource("4_6cm17")
+camera_positions = NodePath("../CameraPositions")
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport/CameraRig"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+environment = SubResource("Environment_fqj51")
+projection = 1
+size = 5.443
+far = 200.0
+script = ExtResource("5_hxbeo")
+
+[node name="PostProcessing" parent="SubViewportContainer/SubViewport/CameraRig/Camera3D" instance=ExtResource("6_yo0r2")]
+transform = Transform3D(0.486448, 0, -0.486448, -0.243224, 0.595775, -0.243224, 0.421276, 0.34397, 0.421276, -0.133085, -1.80905, -4.74297)
+visible = false
+extra_cull_margin = 16384.0
+skeleton = NodePath("../../../..")
+script = ExtResource("7_2caaa")
+
+[node name="CameraPositions" type="Node3D" parent="SubViewportContainer/SubViewport"]
+
+[node name="start" parent="SubViewportContainer/SubViewport/CameraPositions" node_paths=PackedStringArray("cam_debug") instance=ExtResource("8_f0py0")]
+transform = Transform3D(-4.37114e-08, -0.707107, 0.707107, 0, 0.707107, 0.707107, -1, 3.09086e-08, -3.09086e-08, -2.18338, 4.20146, -1.35625)
+orthographic_size = 5.443
+cam_debug = NodePath("../../CameraRig")
+
+[node name="guard" parent="SubViewportContainer/SubViewport/CameraPositions" node_paths=PackedStringArray("cam_debug") instance=ExtResource("8_f0py0")]
+transform = Transform3D(-0.5, -0.612373, 0.612373, 0, 0.707107, 0.707107, -0.866025, 0.353554, -0.353554, 7.54138, 12.8885, -10.1613)
+orthographic_size = 5.246
+cam_debug = NodePath("../../CameraRig")
+
+[node name="Lights" type="Node" parent="SubViewportContainer/SubViewport"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport/Lights"]
+transform = Transform3D(0.0152557, -0.991674, -0.127864, -0.377232, -0.124137, 0.917762, -0.925993, 0.0342332, -0.375985, 0, 7.00427, 0)
+light_color = Color(0.930667, 0.92, 1, 1)
+light_energy = 1.69
+
+[node name="OmniLight3D" type="OmniLight3D" parent="SubViewportContainer/SubViewport/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.404772, 4.86301, 1.17614)
+light_color = Color(0.926156, 0.994099, 1, 1)
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="SubViewportContainer/SubViewport/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.404772, 4.86301, -3.85401)
+light_color = Color(0.926156, 0.994099, 1, 1)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="SubViewportContainer/SubViewport/Lights"]
+transform = Transform3D(0.703009, -0.629111, 0.331659, 0.0887598, 0.540318, 0.836767, -0.70562, -0.558817, 0.435688, 0.165621, 7.60533, 6.56409)
+light_color = Color(0.79, 0.839, 1, 1)
+light_energy = 0.552
+spot_range = 10.1
+spot_attenuation = -0.21
+spot_angle = 24.68
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewportContainer/SubViewport/Lights"]
+environment = SubResource("Environment_wwu7l")

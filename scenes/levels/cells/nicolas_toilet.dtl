@@ -1,0 +1,29 @@
+join character (idle_nicolas) right
+if {has_talked_to_guard_outside_cell} == false:
+	character: You gotta have one of these!
+else:
+	if {has_toileted_enough} == false:
+		character (idle_nicolas): Well, at least you're here for me...
+		- Use toilet
+			character (bro_nicolas): I don't think I need it right now.
+		- Continue talking to the toilet out loud
+			character (idle_nicolas): So... what's it like having a job like yours?
+			character: ...
+			character (surprised_nicolas): Hey! Language!
+		- Scrutinise toilet
+			character (surprised_nicolas): What's this?
+			if Inventory.has_item("hook"):
+				character (idle_nicolas): Wow! Nothing at all!
+				set {has_toileted_enough} = true
+			elif Inventory.has_item("nicolas_key"):
+				character (bro_nicolas): Oh. Oh no.
+				set {has_toileted_enough} = true
+				jump toilet_regret
+			else:
+				(Nicolas opens the tank and takes out the chain, in a significantly more detailed and less straightforward sequence than this)
+				character (bro_nicolas): Haha neato, I'm sure this'll be useful
+				do Inventory.pick_up_item("hook")
+	else:
+		jump toilet_regret
+		label toilet_regret
+		character (idle_nicolas): I don't think I wanna look at this anymore.

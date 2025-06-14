@@ -1,0 +1,56 @@
+join character (idle_nicolas) left
+join temp-character right
+if {has_talked_to_guard_outside_cell} == false:
+	character (surprised_nicolas): (There's a guard over there... with a key.)
+	set {has_talked_to_guard_outside_cell} = true
+	- Tap him on the shoulder
+		character (idle_nicolas): Psst... hey...
+		temp-character (idle_placeholder): Yes?
+		jump key_choices
+	- Act casual
+		character (bro_nicolas): Yoooo my guy, my dude, my brocacho.
+		temp-character (sugoi_placeholder): ...what is it?
+		jump key_choices
+	- YELL REALLY LOUDLY!!!!!!
+		character (surprised_nicolas): HEY!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
+		temp-character (angry_placeholder): JESUS H. CHRIST!!
+		temp-character (idle_placeholder): ...
+		temp-character (angry_placeholder): ...what do you want?!
+		jump key_choices
+else:
+	temp-character (idle_placeholder): Yes?
+	jump key_choices
+label key_choices
+- Politely ask for his key
+	character (idle_nicolas): Hey, pretty neat key you got there!
+	temp-character (sugoi_placeholder): Oh! Well, thanks!
+	character (idle_nicolas): Could I... have it?
+	temp-character (angry_placeholder): No!
+	character (idle_nicolas): Drat.
+- Act all tough
+	character (bro_nicolas): Listen to me, PIG. You're gonna GIVE ME that KEY, or you're gonna regret it.
+	temp-character (idle_placeholder): You're all talk, man.
+	temp-character (sugoi_placeholder): And besides, how are you gonna get me if you can't get out of your cell?
+	character (idle_nicolas): ...when we get recreation?
+	temp-character (idle_placeholder): Funny that you think you're getting it.
+- Act all pathetic-like
+	if {has_uwud_to_the_guard} == false:
+		character (idle_nicolas): Miwster gward, can I have the key pwease? UwU...
+		temp-character (sugoi_placeholder): Yes--
+		temp-character (angry_placeholder): NO! That kind of stuff will absolutely NOT work on me!
+		temp-character (sugoi_placeholder): ...
+		character (idle_nicolas): ...
+		character (bro_nicolas): (I don't wanna do that ever again...)
+		set {has_uwud_to_the_guard} = true
+	else:
+		character (bro_nicolas): (I don't think so.)
+- Use the Hook to grab the key | [if Inventory.has_item("hook")]
+	(A hilarious animated scene where Nicolas uses an obscenely long "hook" to try for the key, but accidentally wraps it through the bars, across the guard's neck, choking him)
+	character (surprised_nicolas): Oh god. Oh god oh god oh god.
+	character (idle_nicolas): ...
+	character (surprised_nicolas): Oh, hey! The key!
+	do Inventory.use_item("hook")
+	do Inventory.pick_up_item("nicolas_key")
+- Leave conversation
+	character (idle_nicolas): Nothing, I guess.
+	temp-character (angry_placeholder): Well, stop wasting my time, inmate.
