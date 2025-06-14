@@ -18,6 +18,5 @@ shape = SubResource("CapsuleShape3D_ujwqk")
 target_desired_distance = 0.1
 
 [node name="nicolas" parent="." instance=ExtResource("1_0xhsu")]
-transform = Transform3D(0.36, 0, 0, 0, 0.36, 0, 0, 0, 0.36, 0, 0, 0)
 
 [editable path="nicolas"]
