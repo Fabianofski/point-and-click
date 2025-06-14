@@ -1,0 +1,89 @@
+[gd_scene load_steps=10 format=3 uid="uid://bpt38qtfed741"]
+
+[ext_resource type="PackedScene" uid="uid://3wndc4t7qphv" path="res://scenes/ui/inventory/inventory.tscn" id="1_plydf"]
+[ext_resource type="PackedScene" uid="uid://yfov34a37w28" path="res://entities/player/player.tscn" id="2_bfxgj"]
+[ext_resource type="PackedScene" uid="uid://bur4kcips0v1b" path="res://scenes/levels/prison-cell/prison-cell.blend" id="2_heit1"]
+[ext_resource type="PackedScene" uid="uid://b1c7anxbg7hk4" path="res://common/shader/post_processing.tscn" id="3_dywbp"]
+[ext_resource type="Script" uid="uid://uvi6iap5o1j0" path="res://entities/camera/camera_3d_texel_snapped3.gd" id="5_1seuy"]
+[ext_resource type="Script" uid="uid://crl2u3o0u8v37" path="res://entities/camera/camera_movement.gd" id="5_2r1tl"]
+[ext_resource type="PackedScene" uid="uid://c20c27qyd0qt3" path="res://entities/camera/camera_target.tscn" id="8_8a7m2"]
+[ext_resource type="Script" uid="uid://m1hyinroj0es" path="res://common/shader/editor_disable.gd" id="9_5ntmo"]
+
+[sub_resource type="Environment" id="Environment_iqygu"]
+background_mode = 1
+background_color = Color(0.11, 0.085195, 0.0737, 1)
+ambient_light_color = Color(0, 0, 0.682353, 1)
+ambient_light_energy = 3.52
+
+[node name="PixelatedScene" type="Node3D"]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+stretch_shrink = 4
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+physics_object_picking = true
+size = Vector2i(480, 270)
+render_target_update_mode = 4
+
+[node name="Inventory" parent="SubViewportContainer/SubViewport" instance=ExtResource("1_plydf")]
+
+[node name="level" type="Node3D" parent="SubViewportContainer/SubViewport"]
+
+[node name="prison-cell" parent="SubViewportContainer/SubViewport/level" instance=ExtResource("2_heit1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+
+[node name="Player" parent="SubViewportContainer/SubViewport/level" node_paths=PackedStringArray("target") groups=["snap"] instance=ExtResource("2_bfxgj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.014, 1.06695, -2.91875)
+target = NodePath("../Marker3D")
+
+[node name="Marker3D" type="Marker3D" parent="SubViewportContainer/SubViewport/level"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4496, 0.708897, -5.17944)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport/level"]
+transform = Transform3D(-0.979973, -0.193015, 0.0489841, 0.176803, -0.730163, 0.660002, -0.0916239, 0.655444, 0.749665, 0, 13.7714, 0)
+light_energy = 5.201
+
+[node name="CameraRig" type="Node3D" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("camera_positions")]
+transform = Transform3D(-4.37114e-08, -0.707107, 0.707107, 0, 0.707107, 0.707107, -1, 3.09086e-08, -3.09086e-08, 11.7192, 12.8885, -1.25)
+script = ExtResource("5_2r1tl")
+camera_positions = NodePath("../CameraPositions")
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport/CameraRig"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+environment = SubResource("Environment_iqygu")
+projection = 1
+size = 20.0
+far = 200.0
+script = ExtResource("5_1seuy")
+
+[node name="PostProcessing" parent="SubViewportContainer/SubViewport/CameraRig/Camera3D" instance=ExtResource("3_dywbp")]
+transform = Transform3D(0.486448, 0, -0.486448, -0.243224, 0.595775, -0.243224, 0.421276, 0.34397, 0.421276, -0.133085, -1.80905, -4.74297)
+visible = false
+extra_cull_margin = 16384.0
+skeleton = NodePath("../../../..")
+script = ExtResource("9_5ntmo")
+
+[node name="CameraPositions" type="Node3D" parent="SubViewportContainer/SubViewport"]
+
+[node name="start" parent="SubViewportContainer/SubViewport/CameraPositions" node_paths=PackedStringArray("cam_debug") instance=ExtResource("8_8a7m2")]
+transform = Transform3D(-4.37114e-08, -0.707107, 0.707107, 0, 0.707107, 0.707107, -1, 3.09086e-08, -3.09086e-08, -3, 6, -1.25)
+orthographic_size = 12.0
+cam_debug = NodePath("../../CameraRig")
+
+[node name="side" parent="SubViewportContainer/SubViewport/CameraPositions" node_paths=PackedStringArray("cam_debug") instance=ExtResource("8_8a7m2")]
+transform = Transform3D(-4.37114e-08, -0.707107, 0.707107, 0, 0.707107, 0.707107, -1, 3.09086e-08, -3.09086e-08, 11.7192, 12.8885, -1.25)
+orthographic_size = 20.0
+cam_debug = NodePath("../../CameraRig")
+
+[node name="closeup" parent="SubViewportContainer/SubViewport/CameraPositions" node_paths=PackedStringArray("cam_debug") instance=ExtResource("8_8a7m2")]
+transform = Transform3D(-4.37114e-08, -0.707107, 0.707107, 0, 0.707107, 0.707107, -1, 3.09086e-08, -3.09086e-08, 11.719, 23, -1.25)
+orthographic_size = 5.0
+cam_debug = NodePath("../../CameraRig")

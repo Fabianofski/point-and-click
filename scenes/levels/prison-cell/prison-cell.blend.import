@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cwggmj8i0d33e"
-path="res://.godot/imported/prison-cell.blend-f4e6f014cd669c14c156abba16f0f707.scn"
+uid="uid://bur4kcips0v1b"
+path="res://.godot/imported/prison-cell.blend-6621087c0748694d33794c5e940c375b.scn"
 
 [deps]
 
-source_file="res://scenes/levels/prison-cell.blend"
-dest_files=["res://.godot/imported/prison-cell.blend-f4e6f014cd669c14c156abba16f0f707.scn"]
+source_file="res://scenes/levels/prison-cell/prison-cell.blend"
+dest_files=["res://.godot/imported/prison-cell.blend-6621087c0748694d33794c5e940c375b.scn"]
 
 [params]
 
@@ -31,7 +31,7 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
-import_script/path=""
+import_script/path="uid://ci4lm85tga4gu"
 _subresources={}
 blender/nodes/visible=0
 blender/nodes/active_collection_only=false

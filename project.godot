@@ -24,14 +24,14 @@ Inventory="*res://entities/player/inventory.gd"
 [dialogic]
 
 directories/dch_directory={
-"character": "res://scenes/levels/nicolas.dch",
-"temp-character": "res://scenes/levels/temp-character.dch"
+"character": "res://scenes/levels/archive/nicolas.dch",
+"temp-character": "res://scenes/levels/archive/temp-character.dch"
 }
 directories/dtl_directory={
-"nicolas_guard_outside_cell": "res://scenes/levels/cells/nicolas_guard_outside_cell.dtl",
-"nicolas_toilet": "res://scenes/levels/cells/nicolas_toilet.dtl",
-"timeline": "res://scenes/levels/timeline.dtl",
-"tiny_objects": "res://scenes/levels/tiny_objects.dtl"
+"nicolas_guard_outside_cell": "res://scenes/levels/archive/cells/nicolas_guard_outside_cell.dtl",
+"nicolas_toilet": "res://scenes/levels/archive/cells/nicolas_toilet.dtl",
+"timeline": "res://scenes/levels/archive/timeline.dtl",
+"tiny_objects": "res://scenes/levels/archive/tiny_objects.dtl"
 }
 variables={
 "has_talked_to_guard_outside_cell": false,

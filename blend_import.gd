@@ -16,6 +16,9 @@ func iterate(node: Node3D, root):
 			itbl.position = node.position
 			itbl.rotation = node.rotation
 
+			itbl.object_id = node.name.replace("-itbl", "")
+			itbl.level = root.name
+
 			node.reparent(itbl)
 
 			var collision = CollisionShape3D.new() 
