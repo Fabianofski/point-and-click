@@ -87,6 +87,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.40559, 0.708897, -3.01415)
 
 [node name="Guard" parent="SubViewportContainer/SubViewport/level/Objects" instance=ExtResource("4_wwu7l")]
 transform = Transform3D(-0.791904, 0, 0.610642, 0, 1, 0, -0.610642, 0, -0.791904, -2.17319, 1.13908, -4.70883)
+level = "nicolas_cell"
 object_id = "key_guard"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/level/Objects/Guard"]
@@ -97,6 +98,7 @@ mesh = SubResource("CapsuleMesh_hxbeo")
 
 [node name="Toilet" parent="SubViewportContainer/SubViewport/level/Objects" instance=ExtResource("4_wwu7l")]
 transform = Transform3D(-0.791904, 0, 0.610642, 0, 1, 0, -0.610642, 0, -0.791904, -6.67829, 1.26031, 1.7676)
+level = "nicolas_cell"
 object_id = "nicolas_toilet"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/level/Objects/Toilet"]

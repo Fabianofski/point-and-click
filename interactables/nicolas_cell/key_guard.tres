@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="Interactable" load_steps=6 format=3 uid="uid://tsje4q5qfhfn"]
+
+[ext_resource type="Script" uid="uid://bknd63hmlfksa" path="res://interactables/interactable_res.gd" id="1_8eaab"]
+[ext_resource type="Script" uid="uid://bk3032cvmxwr0" path="res://entities/interactable/on_click_action.gd" id="1_esufv"]
+
+[sub_resource type="Resource" id="Resource_ktjqu"]
+script = ExtResource("1_esufv")
+click_event = 1
+cam_pos = "start"
+metadata/_custom_type_script = "uid://bk3032cvmxwr0"
+
+[sub_resource type="Resource" id="Resource_yxm47"]
+script = ExtResource("1_esufv")
+click_event = 0
+timeline = "nicolas_guard_outside_cell"
+next_action = SubResource("Resource_ktjqu")
+metadata/_custom_type_script = "uid://bk3032cvmxwr0"
+
+[sub_resource type="Resource" id="Resource_wbnun"]
+script = ExtResource("1_esufv")
+click_event = 1
+cam_pos = "guard"
+next_action = SubResource("Resource_yxm47")
+metadata/_custom_type_script = "uid://bk3032cvmxwr0"
+
+[resource]
+script = ExtResource("1_8eaab")
+on_click_action = SubResource("Resource_wbnun")
+camera_layer = "all"
+active = true
+metadata/_custom_type_script = "uid://bknd63hmlfksa"
