@@ -1,0 +1,72 @@
+[gd_scene load_steps=10 format=3 uid="uid://drymgbbim5nvr"]
+
+[ext_resource type="PackedScene" uid="uid://dy7g7myk3uawd" path="res://scenes/levels/test-scene.blend" id="1_g0j8p"]
+[ext_resource type="PackedScene" uid="uid://3wndc4t7qphv" path="res://scenes/ui/inventory/inventory.tscn" id="1_n23ae"]
+[ext_resource type="PackedScene" uid="uid://yfov34a37w28" path="res://entities/player/player.tscn" id="2_wxw6f"]
+[ext_resource type="Script" uid="uid://crl2u3o0u8v37" path="res://entities/camera/camera_movement.gd" id="3_bd5dj"]
+[ext_resource type="Script" uid="uid://uvi6iap5o1j0" path="res://entities/camera/camera_3d_texel_snapped3.gd" id="4_n23ae"]
+[ext_resource type="PackedScene" uid="uid://b1c7anxbg7hk4" path="res://common/shader/post_processing.tscn" id="5_d4h5r"]
+[ext_resource type="Script" uid="uid://m1hyinroj0es" path="res://common/shader/editor_disable.gd" id="6_74fe1"]
+[ext_resource type="PackedScene" uid="uid://c20c27qyd0qt3" path="res://entities/camera/camera_target.tscn" id="7_cgvod"]
+
+[sub_resource type="Environment" id="Environment_6qwt1"]
+background_mode = 1
+background_color = Color(0.11, 0.085195, 0.0737, 1)
+ambient_light_color = Color(0, 0, 0.682353, 1)
+ambient_light_energy = 3.52
+
+[node name="Test" type="Node3D"]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+stretch_shrink = 4
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+physics_object_picking = true
+size = Vector2i(480, 270)
+render_target_update_mode = 4
+
+[node name="Inventory" parent="SubViewportContainer/SubViewport" instance=ExtResource("1_n23ae")]
+
+[node name="test-scene" parent="SubViewportContainer/SubViewport" instance=ExtResource("1_g0j8p")]
+
+[node name="CharacterBody3D" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("target") instance=ExtResource("2_wxw6f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.90592, 48.2458, -3.25251)
+target = NodePath("../Marker3D")
+
+[node name="Marker3D" type="Marker3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.50869, 48.0519, -3.07617)
+
+[node name="CameraRig" type="Node3D" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("camera_positions")]
+transform = Transform3D(0.991671, 0.0910722, -0.0910722, 0, 0.707107, 0.707107, 0.128796, -0.701218, 0.701218, 8.44985, 54.5981, 33.4652)
+script = ExtResource("3_bd5dj")
+camera_positions = NodePath("../CameraPositions")
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport/CameraRig"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+environment = SubResource("Environment_6qwt1")
+projection = 1
+size = 73.771
+far = 200.0
+script = ExtResource("4_n23ae")
+
+[node name="PostProcessing" parent="SubViewportContainer/SubViewport/CameraRig/Camera3D" instance=ExtResource("5_d4h5r")]
+transform = Transform3D(0.486448, 0, -0.486448, -0.243224, 0.595775, -0.243224, 0.421276, 0.34397, 0.421276, -0.133085, -1.80905, -4.74297)
+visible = false
+extra_cull_margin = 16384.0
+skeleton = NodePath("../../../../../..")
+script = ExtResource("6_74fe1")
+
+[node name="CameraPositions" type="Node3D" parent="SubViewportContainer/SubViewport"]
+
+[node name="start" parent="SubViewportContainer/SubViewport/CameraPositions" node_paths=PackedStringArray("cam_debug") instance=ExtResource("7_cgvod")]
+transform = Transform3D(0.991671, 0.0910722, -0.0910722, 0, 0.707107, 0.707107, 0.128796, -0.701218, 0.701218, 8.44985, 54.5981, 33.4652)
+orthographic_size = 73.771
+cam_debug = NodePath("../../CameraRig")
