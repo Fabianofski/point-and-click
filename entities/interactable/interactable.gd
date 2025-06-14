@@ -1,4 +1,3 @@
-@tool
 extends Area3D
 
 @onready var mesh: MeshInstance3D = null
@@ -13,7 +12,9 @@ var mouse_on_entity: bool = false
 
 func _ready():
 	SignalBus.connect("destroy_object", destroy)
-	SignalBus.connect("change_camera_pos", activate) 
+	SignalBus.connect("change_camera_pos", activate)
+	self.mouse_entered.connect(_on_mouse_entered)
+	self.mouse_exited.connect(_on_mouse_exited)
 	
 	for child in get_children():
 		if child is MeshInstance3D:

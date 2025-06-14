@@ -5,8 +5,3 @@
 [node name="Interactable" type="Area3D" groups=["snap"]]
 transform = Transform3D(-0.791904, 0, 0.610642, 0, 1, 0, -0.610642, 0, -0.791904, 0, 0, 0)
 script = ExtResource("1_ejncd")
-camera_layer = null
-active = null
-
-[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
