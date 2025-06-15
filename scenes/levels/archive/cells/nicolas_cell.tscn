@@ -43,7 +43,7 @@ sky = SubResource("Sky_nicx2")
 tonemap_mode = 2
 glow_enabled = true
 
-[node name="PixelatedScene" type="Node3D"]
+[node name="PixelatedScene2" type="Node3D"]
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 texture_filter = 1

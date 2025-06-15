@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://3wndc4t7qphv" path="res://scenes/ui/inventory/inventory.tscn" id="1_plydf"]
 [ext_resource type="PackedScene" uid="uid://yfov34a37w28" path="res://entities/player/player.tscn" id="2_bfxgj"]
-[ext_resource type="PackedScene" uid="uid://bur4kcips0v1b" path="res://scenes/levels/prison-cell/prison-cell.blend" id="2_heit1"]
+[ext_resource type="PackedScene" uid="uid://dy7g7myk3uawd" path="res://scenes/levels/test-scene.blend" id="2_heit1"]
 [ext_resource type="PackedScene" uid="uid://b1c7anxbg7hk4" path="res://common/shader/post_processing.tscn" id="3_dywbp"]
 [ext_resource type="Script" uid="uid://uvi6iap5o1j0" path="res://entities/camera/camera_3d_texel_snapped3.gd" id="5_1seuy"]
 [ext_resource type="Script" uid="uid://crl2u3o0u8v37" path="res://entities/camera/camera_movement.gd" id="5_2r1tl"]
@@ -37,11 +37,10 @@ render_target_update_mode = 4
 
 [node name="level" type="Node3D" parent="SubViewportContainer/SubViewport"]
 
-[node name="prison-cell" parent="SubViewportContainer/SubViewport/level" instance=ExtResource("2_heit1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+[node name="test-scene" parent="SubViewportContainer/SubViewport/level" instance=ExtResource("2_heit1")]
 
 [node name="Player" parent="SubViewportContainer/SubViewport/level" node_paths=PackedStringArray("target") groups=["snap"] instance=ExtResource("2_bfxgj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.014, 1.06695, -2.91875)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.03298, 1.06695, -2.35392)
 target = NodePath("../Marker3D")
 
 [node name="Marker3D" type="Marker3D" parent="SubViewportContainer/SubViewport/level"]
