@@ -1,13 +1,17 @@
-[gd_scene load_steps=10 format=3 uid="uid://bpt38qtfed741"]
+[gd_scene load_steps=11 format=3 uid="uid://bpt38qtfed741"]
 
 [ext_resource type="PackedScene" uid="uid://3wndc4t7qphv" path="res://scenes/ui/inventory/inventory.tscn" id="1_plydf"]
 [ext_resource type="PackedScene" uid="uid://yfov34a37w28" path="res://entities/player/player.tscn" id="2_bfxgj"]
-[ext_resource type="PackedScene" uid="uid://dy7g7myk3uawd" path="res://scenes/levels/test-scene.blend" id="2_heit1"]
+[ext_resource type="PackedScene" uid="uid://cwggmj8i0d33e" path="res://scenes/levels/prison-cell.blend" id="2_heit1"]
 [ext_resource type="PackedScene" uid="uid://b1c7anxbg7hk4" path="res://common/shader/post_processing.tscn" id="3_dywbp"]
 [ext_resource type="Script" uid="uid://uvi6iap5o1j0" path="res://entities/camera/camera_3d_texel_snapped3.gd" id="5_1seuy"]
 [ext_resource type="Script" uid="uid://crl2u3o0u8v37" path="res://entities/camera/camera_movement.gd" id="5_2r1tl"]
 [ext_resource type="PackedScene" uid="uid://c20c27qyd0qt3" path="res://entities/camera/camera_target.tscn" id="8_8a7m2"]
 [ext_resource type="Script" uid="uid://m1hyinroj0es" path="res://common/shader/editor_disable.gd" id="9_5ntmo"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_heit1"]
+vertices = PackedVector3Array(-7.14458, 0.704765, 1.751, -3.39458, 0.704765, 1.751, -3.39458, 0.704765, -6.499, -7.14458, 0.704765, -6.499, 1.10542, 0.704765, 1.501, -1.39458, 0.704765, 1.251, -1.39458, 0.704765, 3.501, 1.85542, 0.704765, 3.501, 7.10542, 0.704765, 3.501, 7.10542, 0.704765, 1.751, 3.85542, 0.704765, 1.751, 3.60542, 0.704765, 3.751, 1.85542, 0.704765, -6.499, 1.60542, 0.704765, -0.999001, 1.60542, 0.704765, 1.001, 7.85542, 0.704765, 7.251, 7.85542, 0.704765, 3.751, -2.39458, 0.704765, 3.751, -2.39458, 0.704765, 7.251, -1.39458, 0.704765, -6.499, -1.39458, 0.704765, -1.249, -0.394577, 0.704765, -1.749, 1.10542, 0.704765, -1.499, 7.10542, 0.704765, -6.499, 3.85542, 0.704765, -6.499, -0.394577, 2.70477, 0.500999, 0.605423, 2.70477, 0.500999, 0.605423, 2.70477, -0.499001, -0.644577, 2.70477, -0.249001, -0.144577, 0.704765, -0.249001, -0.144577, 0.704765, 0.250999, 0.355423, 0.704765, 0.250999, 0.355423, 0.704765, -0.249001, -7.14458, 0.704765, 3.501, -7.89458, 0.704765, 3.751, -7.89458, 0.704765, 7.251, -3.39458, 0.704765, 3.501)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Array(5, 4, 6), PackedInt32Array(6, 4, 7), PackedInt32Array(9, 8, 10), PackedInt32Array(10, 8, 11), PackedInt32Array(14, 13, 7), PackedInt32Array(7, 13, 12), PackedInt32Array(16, 15, 8), PackedInt32Array(8, 15, 11), PackedInt32Array(17, 6, 18), PackedInt32Array(18, 6, 7), PackedInt32Array(18, 7, 11), PackedInt32Array(18, 11, 15), PackedInt32Array(21, 20, 19), PackedInt32Array(22, 21, 12), PackedInt32Array(12, 21, 19), PackedInt32Array(4, 14, 7), PackedInt32Array(13, 22, 12), PackedInt32Array(24, 23, 10), PackedInt32Array(10, 23, 9), PackedInt32Array(25, 28, 26), PackedInt32Array(26, 28, 27), PackedInt32Array(32, 31, 29), PackedInt32Array(29, 31, 30), PackedInt32Array(34, 33, 35), PackedInt32Array(35, 33, 36), PackedInt32Array(35, 36, 17), PackedInt32Array(35, 17, 18), PackedInt32Array(33, 0, 36), PackedInt32Array(36, 0, 1)]
 
 [sub_resource type="Environment" id="Environment_iqygu"]
 background_mode = 1
@@ -37,7 +41,10 @@ render_target_update_mode = 4
 
 [node name="level" type="Node3D" parent="SubViewportContainer/SubViewport"]
 
-[node name="test-scene" parent="SubViewportContainer/SubViewport/level" instance=ExtResource("2_heit1")]
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="SubViewportContainer/SubViewport/level"]
+navigation_mesh = SubResource("NavigationMesh_heit1")
+
+[node name="prison-cell" parent="SubViewportContainer/SubViewport/level/NavigationRegion3D" instance=ExtResource("2_heit1")]
 
 [node name="Player" parent="SubViewportContainer/SubViewport/level" node_paths=PackedStringArray("target") groups=["snap"] instance=ExtResource("2_bfxgj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.03298, 1.06695, -2.35392)
